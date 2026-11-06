@@ -1,38 +1,865 @@
 {
-  "goal": "Curate blockchain terminology in source order",
-  "source_order": [
+  "goal": "Curate blockchain terminology in source order: Bitcoin whitepaper -> recognized milestone works (chronological, up to the present) -> frontier papers.",
+  "schedule": {
+    "timezone": "Asia/Shanghai",
+    "time": "07:00",
+    "batch_size": 5,
+    "runner": "Devin Automation (see CURATION.md)"
+  },
+  "phases": [
     {
       "phase": "bitcoin-whitepaper",
       "status": "in_progress",
+      "description": "Remaining core concepts of the Bitcoin whitepaper.",
       "sources": [
         {
+          "id": "bitcoin-whitepaper",
           "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
-          "author": "Satoshi Nakamoto",
-          "url": "https://bitcoin.org/bitcoin.pdf"
+          "authors": "Satoshi Nakamoto",
+          "year": 2008,
+          "venue": "Whitepaper",
+          "url": "https://bitcoin.org/bitcoin.pdf",
+          "status": "in_progress",
+          "candidate_terms": [
+            "block header",
+            "merkle root",
+            "simplified payment verification (SPV)",
+            "pruning",
+            "timestamp server",
+            "trusted third party",
+            "chain of ownership",
+            "transaction input",
+            "transaction output",
+            "change output",
+            "honest node",
+            "51% attack",
+            "one-CPU-one-vote",
+            "pseudonymity",
+            "full node",
+            "broadcast",
+            "incentive"
+          ],
+          "terms_added": [
+            "blockchain",
+            "peer-to-peer",
+            "timestamp",
+            "transaction",
+            "block",
+            "hash",
+            "digital-signature",
+            "proof-of-work",
+            "nonce",
+            "longest-chain",
+            "difficulty",
+            "merkle-tree",
+            "mempool",
+            "miner",
+            "mining-reward",
+            "public-key",
+            "private-key",
+            "address",
+            "transaction-fee",
+            "coinbase-transaction",
+            "confirmation",
+            "fork",
+            "reorganization",
+            "double-spending",
+            "wallet",
+            "utxo",
+            "consensus",
+            "halving",
+            "hashrate",
+            "script"
+          ]
         }
       ]
     },
     {
-      "phase": "ethereum-whitepaper",
+      "phase": "classic-milestones",
       "status": "pending",
+      "description": "Widely recognized milestone works that opened new directions. Ethereum whitepaper first (user priority), then chronological to the present. Append newly recognized milestones in chronological position before the phase is done.",
       "sources": [
         {
+          "id": "ethereum-whitepaper",
           "title": "Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform",
-          "author": "Vitalik Buterin",
-          "url": "https://ethereum.org/en/whitepaper/"
+          "authors": "Vitalik Buterin",
+          "year": 2013,
+          "venue": "Whitepaper",
+          "url": "https://ethereum.org/en/whitepaper/",
+          "status": "pending",
+          "candidate_terms": [
+            "smart contract",
+            "Ethereum Virtual Machine (EVM)",
+            "gas",
+            "gas limit",
+            "ether",
+            "externally owned account (EOA)",
+            "contract account",
+            "state transition function",
+            "Turing completeness",
+            "decentralized application (dApp)",
+            "decentralized autonomous organization (DAO)",
+            "token",
+            "Merkle Patricia trie",
+            "uncle block"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "ppcoin",
+          "title": "PPCoin: Peer-to-Peer Crypto-Currency with Proof-of-Stake",
+          "authors": "Sunny King, Scott Nadal",
+          "year": 2012,
+          "venue": "Whitepaper",
+          "url": "https://www.peercoin.net/read/papers/peercoin-paper.pdf",
+          "status": "pending",
+          "candidate_terms": [
+            "proof-of-stake",
+            "coin age",
+            "stake",
+            "checkpoint",
+            "minting"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "selfish-mining",
+          "title": "Majority is not Enough: Bitcoin Mining is Vulnerable",
+          "authors": "Ittay Eyal, Emin Gün Sirer",
+          "year": 2013,
+          "venue": "FC 2014",
+          "url": "https://arxiv.org/abs/1311.0243",
+          "status": "pending",
+          "candidate_terms": [
+            "selfish mining",
+            "mining pool",
+            "block withholding",
+            "honest majority",
+            "orphan block"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "ghost",
+          "title": "Secure High-Rate Transaction Processing in Bitcoin (GHOST)",
+          "authors": "Yonatan Sompolinsky, Aviv Zohar",
+          "year": 2013,
+          "venue": "FC 2015",
+          "url": "https://eprint.iacr.org/2013/881",
+          "status": "pending",
+          "candidate_terms": [
+            "GHOST",
+            "stale block",
+            "block propagation delay",
+            "throughput",
+            "heaviest subtree"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "zerocash",
+          "title": "Zerocash: Decentralized Anonymous Payments from Bitcoin",
+          "authors": "Eli Ben-Sasson et al.",
+          "year": 2014,
+          "venue": "IEEE S&P 2014",
+          "url": "https://eprint.iacr.org/2014/349",
+          "status": "pending",
+          "candidate_terms": [
+            "zero-knowledge proof",
+            "zk-SNARK",
+            "shielded transaction",
+            "commitment",
+            "nullifier",
+            "trusted setup"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "ethereum-yellow-paper",
+          "title": "Ethereum: A Secure Decentralised Generalised Transaction Ledger (Yellow Paper)",
+          "authors": "Gavin Wood",
+          "year": 2014,
+          "venue": "Technical specification",
+          "url": "https://ethereum.github.io/yellowpaper/paper.pdf",
+          "status": "pending",
+          "candidate_terms": [
+            "world state",
+            "opcode",
+            "gas price",
+            "transaction receipt",
+            "bloom filter",
+            "RLP encoding",
+            "precompiled contract"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "pegged-sidechains",
+          "title": "Enabling Blockchain Innovations with Pegged Sidechains",
+          "authors": "Adam Back et al.",
+          "year": 2014,
+          "venue": "Whitepaper",
+          "url": "https://blockstream.com/sidechains.pdf",
+          "status": "pending",
+          "candidate_terms": [
+            "sidechain",
+            "two-way peg",
+            "SPV proof",
+            "federated peg"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "bitcoin-backbone",
+          "title": "The Bitcoin Backbone Protocol: Analysis and Applications",
+          "authors": "Juan Garay, Aggelos Kiayias, Nikos Leonardos",
+          "year": 2015,
+          "venue": "EUROCRYPT 2015",
+          "url": "https://eprint.iacr.org/2014/765",
+          "status": "pending",
+          "candidate_terms": [
+            "common prefix",
+            "chain quality",
+            "chain growth",
+            "persistence",
+            "liveness"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "erc-20",
+          "title": "EIP-20: Token Standard",
+          "authors": "Fabian Vogelsteller, Vitalik Buterin",
+          "year": 2015,
+          "venue": "Ethereum Improvement Proposal",
+          "url": "https://eips.ethereum.org/EIPS/eip-20",
+          "status": "pending",
+          "candidate_terms": [
+            "ERC-20",
+            "fungible token",
+            "token standard",
+            "allowance",
+            "Ethereum Improvement Proposal (EIP)"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "segwit",
+          "title": "BIP-141: Segregated Witness (Consensus layer)",
+          "authors": "Eric Lombrozo, Johnson Lau, Pieter Wuille",
+          "year": 2015,
+          "venue": "Bitcoin Improvement Proposal",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki",
+          "status": "pending",
+          "candidate_terms": [
+            "Segregated Witness (SegWit)",
+            "witness",
+            "block weight",
+            "transaction malleability",
+            "soft fork"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "bitcoin-ng",
+          "title": "Bitcoin-NG: A Scalable Blockchain Protocol",
+          "authors": "Ittay Eyal et al.",
+          "year": 2016,
+          "venue": "NSDI 2016",
+          "url": "https://arxiv.org/abs/1510.02037",
+          "status": "pending",
+          "candidate_terms": [
+            "key block",
+            "microblock",
+            "leader election"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "lightning-network",
+          "title": "The Bitcoin Lightning Network: Scalable Off-Chain Instant Payments",
+          "authors": "Joseph Poon, Thaddeus Dryja",
+          "year": 2016,
+          "venue": "Whitepaper",
+          "url": "https://lightning.network/lightning-network-paper.pdf",
+          "status": "pending",
+          "candidate_terms": [
+            "payment channel",
+            "off-chain",
+            "hashed timelock contract (HTLC)",
+            "timelock",
+            "multisignature",
+            "commitment transaction",
+            "payment routing"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "making-smart-contracts-smarter",
+          "title": "Making Smart Contracts Smarter",
+          "authors": "Loi Luu et al.",
+          "year": 2016,
+          "venue": "ACM CCS 2016",
+          "url": "https://eprint.iacr.org/2016/633",
+          "status": "pending",
+          "candidate_terms": [
+            "reentrancy",
+            "transaction-ordering dependence",
+            "timestamp dependence",
+            "symbolic execution"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "groth16",
+          "title": "On the Size of Pairing-based Non-interactive Arguments",
+          "authors": "Jens Groth",
+          "year": 2016,
+          "venue": "EUROCRYPT 2016",
+          "url": "https://eprint.iacr.org/2016/260",
+          "status": "pending",
+          "candidate_terms": [
+            "bilinear pairing",
+            "common reference string (CRS)",
+            "succinct proof",
+            "non-interactive argument"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "cosmos-whitepaper",
+          "title": "Cosmos: A Network of Distributed Ledgers",
+          "authors": "Jae Kwon, Ethan Buchman",
+          "year": 2016,
+          "venue": "Whitepaper",
+          "url": "https://github.com/cosmos/cosmos/blob/master/WHITEPAPER.md",
+          "status": "pending",
+          "candidate_terms": [
+            "interoperability",
+            "Inter-Blockchain Communication (IBC)",
+            "hub and zone",
+            "validator",
+            "instant finality"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "polkadot-whitepaper",
+          "title": "Polkadot: Vision for a Heterogeneous Multi-Chain Framework",
+          "authors": "Gavin Wood",
+          "year": 2016,
+          "venue": "Whitepaper",
+          "url": null,
+          "status": "pending",
+          "candidate_terms": [
+            "relay chain",
+            "parachain",
+            "shared security",
+            "collator",
+            "nominator"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "ouroboros",
+          "title": "Ouroboros: A Provably Secure Proof-of-Stake Blockchain Protocol",
+          "authors": "Aggelos Kiayias et al.",
+          "year": 2017,
+          "venue": "CRYPTO 2017",
+          "url": "https://eprint.iacr.org/2016/889",
+          "status": "pending",
+          "candidate_terms": [
+            "epoch",
+            "slot",
+            "slot leader",
+            "stake distribution",
+            "randomness beacon"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "algorand",
+          "title": "Algorand: Scaling Byzantine Agreements for Cryptocurrencies",
+          "authors": "Yossi Gilad et al.",
+          "year": 2017,
+          "venue": "SOSP 2017",
+          "url": "https://eprint.iacr.org/2017/454",
+          "status": "pending",
+          "candidate_terms": [
+            "verifiable random function (VRF)",
+            "cryptographic sortition",
+            "committee",
+            "Byzantine agreement"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "plasma",
+          "title": "Plasma: Scalable Autonomous Smart Contracts",
+          "authors": "Joseph Poon, Vitalik Buterin",
+          "year": 2017,
+          "venue": "Whitepaper",
+          "url": "https://plasma.io/plasma.pdf",
+          "status": "pending",
+          "candidate_terms": [
+            "child chain",
+            "exit",
+            "fraud proof",
+            "challenge period",
+            "operator"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "casper-ffg",
+          "title": "Casper the Friendly Finality Gadget",
+          "authors": "Vitalik Buterin, Virgil Griffith",
+          "year": 2017,
+          "venue": "arXiv",
+          "url": "https://arxiv.org/abs/1710.09437",
+          "status": "pending",
+          "candidate_terms": [
+            "finality",
+            "finality gadget",
+            "slashing",
+            "justified checkpoint",
+            "accountable safety"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "solana-whitepaper",
+          "title": "Solana: A New Architecture for a High Performance Blockchain",
+          "authors": "Anatoly Yakovenko",
+          "year": 2017,
+          "venue": "Whitepaper",
+          "url": "https://solana.com/solana-whitepaper.pdf",
+          "status": "pending",
+          "candidate_terms": [
+            "proof of history",
+            "leader schedule",
+            "verifiable delay"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "erc-721",
+          "title": "EIP-721: Non-Fungible Token Standard",
+          "authors": "William Entriken et al.",
+          "year": 2018,
+          "venue": "Ethereum Improvement Proposal",
+          "url": "https://eips.ethereum.org/EIPS/eip-721",
+          "status": "pending",
+          "candidate_terms": [
+            "non-fungible token (NFT)",
+            "token ID",
+            "token metadata",
+            "safe transfer"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "hyperledger-fabric",
+          "title": "Hyperledger Fabric: A Distributed Operating System for Permissioned Blockchains",
+          "authors": "Elli Androulaki et al.",
+          "year": 2018,
+          "venue": "EuroSys 2018",
+          "url": "https://arxiv.org/abs/1801.10228",
+          "status": "pending",
+          "candidate_terms": [
+            "permissioned blockchain",
+            "consortium blockchain",
+            "chaincode",
+            "endorsement policy",
+            "execute-order-validate",
+            "ordering service"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "bulletproofs",
+          "title": "Bulletproofs: Short Proofs for Confidential Transactions and More",
+          "authors": "Benedikt Bünz et al.",
+          "year": 2018,
+          "venue": "IEEE S&P 2018",
+          "url": "https://eprint.iacr.org/2017/1066",
+          "status": "pending",
+          "candidate_terms": [
+            "range proof",
+            "confidential transaction",
+            "Pedersen commitment",
+            "inner product argument"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "zk-stark",
+          "title": "Scalable, transparent, and post-quantum secure computational integrity",
+          "authors": "Eli Ben-Sasson et al.",
+          "year": 2018,
+          "venue": "ePrint",
+          "url": "https://eprint.iacr.org/2018/046",
+          "status": "pending",
+          "candidate_terms": [
+            "zk-STARK",
+            "transparent setup",
+            "post-quantum security",
+            "FRI protocol"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "arbitrum",
+          "title": "Arbitrum: Scalable, private smart contracts",
+          "authors": "Harry Kalodner et al.",
+          "year": 2018,
+          "venue": "USENIX Security 2018",
+          "url": "https://www.usenix.org/conference/usenixsecurity18/presentation/kalodner",
+          "status": "pending",
+          "candidate_terms": [
+            "dispute resolution",
+            "bisection protocol",
+            "assertion",
+            "challenge"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "tendermint",
+          "title": "The latest gossip on BFT consensus",
+          "authors": "Ethan Buchman, Jae Kwon, Zarko Milosevic",
+          "year": 2018,
+          "venue": "arXiv",
+          "url": "https://arxiv.org/abs/1807.04938",
+          "status": "pending",
+          "candidate_terms": [
+            "Byzantine fault tolerance (BFT)",
+            "proposer",
+            "prevote",
+            "precommit",
+            "gossip protocol"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "fraud-and-data-availability-proofs",
+          "title": "Fraud and Data Availability Proofs",
+          "authors": "Mustafa Al-Bassam, Alberto Sonnino, Vitalik Buterin",
+          "year": 2018,
+          "venue": "FC 2021",
+          "url": "https://arxiv.org/abs/1809.09044",
+          "status": "pending",
+          "candidate_terms": [
+            "data availability",
+            "data availability sampling",
+            "erasure coding",
+            "light client"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "hotstuff",
+          "title": "HotStuff: BFT Consensus in the Lens of Blockchain",
+          "authors": "Maofan Yin et al.",
+          "year": 2019,
+          "venue": "PODC 2019",
+          "url": "https://arxiv.org/abs/1803.05069",
+          "status": "pending",
+          "candidate_terms": [
+            "quorum certificate",
+            "view change",
+            "optimistic responsiveness",
+            "pipelining"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "flash-boys-2",
+          "title": "Flash Boys 2.0: Frontrunning, Transaction Reordering, and Consensus Instability in Decentralized Exchanges",
+          "authors": "Philip Daian et al.",
+          "year": 2019,
+          "venue": "IEEE S&P 2020",
+          "url": "https://arxiv.org/abs/1904.05234",
+          "status": "pending",
+          "candidate_terms": [
+            "miner extractable value (MEV)",
+            "front-running",
+            "priority gas auction",
+            "decentralized exchange (DEX)",
+            "arbitrage bot"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "plonk",
+          "title": "PLONK: Permutations over Lagrange-bases for Oecumenical Noninteractive arguments of Knowledge",
+          "authors": "Ariel Gabizon, Zachary J. Williamson, Oana Ciobotaru",
+          "year": 2019,
+          "venue": "ePrint",
+          "url": "https://eprint.iacr.org/2019/953",
+          "status": "pending",
+          "candidate_terms": [
+            "universal setup",
+            "polynomial commitment",
+            "KZG commitment",
+            "arithmetic circuit"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "uniswap-v2",
+          "title": "Uniswap v2 Core",
+          "authors": "Hayden Adams, Noah Zinsmeister, Dan Robinson",
+          "year": 2020,
+          "venue": "Whitepaper",
+          "url": "https://uniswap.org/whitepaper.pdf",
+          "status": "pending",
+          "candidate_terms": [
+            "automated market maker (AMM)",
+            "liquidity pool",
+            "constant product formula",
+            "liquidity provider",
+            "flash swap",
+            "time-weighted average price (TWAP)",
+            "slippage"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "flash-loans",
+          "title": "Attacking the DeFi Ecosystem with Flash Loans for Fun and Profit",
+          "authors": "Kaihua Qin et al.",
+          "year": 2020,
+          "venue": "FC 2021",
+          "url": "https://arxiv.org/abs/2003.03810",
+          "status": "pending",
+          "candidate_terms": [
+            "flash loan",
+            "price oracle manipulation",
+            "atomic transaction"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "gasper",
+          "title": "Combining GHOST and Casper",
+          "authors": "Vitalik Buterin et al.",
+          "year": 2020,
+          "venue": "arXiv",
+          "url": "https://arxiv.org/abs/2003.03052",
+          "status": "pending",
+          "candidate_terms": [
+            "Gasper",
+            "LMD-GHOST",
+            "attestation",
+            "beacon chain"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "taproot",
+          "title": "BIP-341: Taproot: SegWit version 1 spending rules",
+          "authors": "Pieter Wuille, Jonas Nick, Anthony Towns",
+          "year": 2020,
+          "venue": "Bitcoin Improvement Proposal",
+          "url": "https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki",
+          "status": "pending",
+          "candidate_terms": [
+            "Taproot",
+            "Schnorr signature",
+            "MAST",
+            "key aggregation",
+            "Tapscript"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "rollup-guide",
+          "title": "An Incomplete Guide to Rollups",
+          "authors": "Vitalik Buterin",
+          "year": 2021,
+          "venue": "Blog post",
+          "url": "https://vitalik.eth.limo/general/2021/01/05/rollup.html",
+          "status": "pending",
+          "candidate_terms": [
+            "rollup",
+            "optimistic rollup",
+            "ZK rollup",
+            "layer 2",
+            "sequencer",
+            "calldata"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "eip-1559",
+          "title": "EIP-1559: Fee market change for ETH 1.0 chain",
+          "authors": "Vitalik Buterin et al.",
+          "year": 2021,
+          "venue": "Ethereum Improvement Proposal",
+          "url": "https://eips.ethereum.org/EIPS/eip-1559",
+          "status": "pending",
+          "candidate_terms": [
+            "base fee",
+            "priority fee",
+            "fee burning",
+            "transaction fee mechanism"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "uniswap-v3",
+          "title": "Uniswap v3 Core",
+          "authors": "Hayden Adams et al.",
+          "year": 2021,
+          "venue": "Whitepaper",
+          "url": "https://uniswap.org/whitepaper-v3.pdf",
+          "status": "pending",
+          "candidate_terms": [
+            "concentrated liquidity",
+            "tick",
+            "range order"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "sok-defi",
+          "title": "SoK: Decentralized Finance (DeFi)",
+          "authors": "Sam M. Werner et al.",
+          "year": 2021,
+          "venue": "AFT 2022",
+          "url": "https://arxiv.org/abs/2101.08778",
+          "status": "pending",
+          "candidate_terms": [
+            "decentralized finance (DeFi)",
+            "composability",
+            "lending protocol",
+            "overcollateralization",
+            "liquidation",
+            "stablecoin",
+            "oracle"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "narwhal-tusk",
+          "title": "Narwhal and Tusk: A DAG-based Mempool and Efficient BFT Consensus",
+          "authors": "George Danezis et al.",
+          "year": 2021,
+          "venue": "EuroSys 2022",
+          "url": "https://arxiv.org/abs/2105.11827",
+          "status": "pending",
+          "candidate_terms": [
+            "DAG-based consensus",
+            "reliable broadcast",
+            "asynchronous consensus",
+            "data dissemination"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "erc-4337",
+          "title": "ERC-4337: Account Abstraction Using Alt Mempool",
+          "authors": "Vitalik Buterin et al.",
+          "year": 2021,
+          "venue": "Ethereum Request for Comment",
+          "url": "https://eips.ethereum.org/EIPS/eip-4337",
+          "status": "pending",
+          "candidate_terms": [
+            "account abstraction",
+            "user operation",
+            "bundler",
+            "paymaster",
+            "smart contract wallet"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "proposer-builder-separation",
+          "title": "Proposer/block builder separation-friendly fee market designs",
+          "authors": "Vitalik Buterin",
+          "year": 2021,
+          "venue": "ethresear.ch",
+          "url": "https://ethresear.ch/t/proposer-block-builder-separation-friendly-fee-market-designs/9725",
+          "status": "pending",
+          "candidate_terms": [
+            "proposer-builder separation (PBS)",
+            "block builder",
+            "MEV relay",
+            "censorship resistance"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "eip-4844",
+          "title": "EIP-4844: Shard Blob Transactions",
+          "authors": "Vitalik Buterin et al.",
+          "year": 2022,
+          "venue": "Ethereum Improvement Proposal",
+          "url": "https://eips.ethereum.org/EIPS/eip-4844",
+          "status": "pending",
+          "candidate_terms": [
+            "blob",
+            "proto-danksharding",
+            "blob gas",
+            "danksharding"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "eigenlayer",
+          "title": "EigenLayer: The Restaking Collective",
+          "authors": "EigenLayer Team",
+          "year": 2023,
+          "venue": "Whitepaper",
+          "url": null,
+          "status": "pending",
+          "candidate_terms": [
+            "restaking",
+            "actively validated service (AVS)",
+            "cryptoeconomic security"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "bitvm",
+          "title": "BitVM: Compute Anything on Bitcoin",
+          "authors": "Robin Linus",
+          "year": 2023,
+          "venue": "Whitepaper",
+          "url": "https://bitvm.org/bitvm.pdf",
+          "status": "pending",
+          "candidate_terms": [
+            "BitVM",
+            "challenge-response protocol",
+            "prover",
+            "verifier"
+          ],
+          "terms_added": []
+        },
+        {
+          "id": "eip-7702",
+          "title": "EIP-7702: Set Code for EOAs",
+          "authors": "Vitalik Buterin et al.",
+          "year": 2024,
+          "venue": "Ethereum Improvement Proposal",
+          "url": "https://eips.ethereum.org/EIPS/eip-7702",
+          "status": "pending",
+          "candidate_terms": [
+            "delegation designator",
+            "authorization list",
+            "transaction sponsorship"
+          ],
+          "terms_added": []
         }
       ]
-    },
-    {
-      "phase": "classic-milestone-articles",
-      "status": "pending",
-      "sources": []
     },
     {
       "phase": "frontier-papers",
       "status": "pending",
+      "description": "Recent papers (IACR ePrint, arXiv cs.CR/cs.DC, top venues). Each run appends the papers it used as new sources here.",
       "sources": []
     }
   ],
-  "notes": "Add terms manually to data/terms-data.js; keep definitions rigorous with citations and bilingual examples."
+  "notes": "candidate_terms are hints, not a fixed list. terms_added records glossary ids per source. A source with url null must have its official URL found and filled in before citing it."
 }
