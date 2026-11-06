@@ -1,7 +1,5 @@
 {
-  "goal": "Add 5 curated terminology terms every day at 07:00 Asia/Shanghai",
-  "timezone": "Asia/Shanghai",
-  "batch_size": 5,
+  "goal": "Curate blockchain terminology in source order",
   "source_order": [
     {
       "phase": "bitcoin-whitepaper",
@@ -36,5 +34,5 @@
       "sources": []
     }
   ],
-  "notes": "Curated terms are written to data/term-queue.json; scripts/add_daily_terms.py appends up to batch_size entries to data/terms-data.js each run."
+  "notes": "Add terms manually to data/terms-data.js; keep definitions rigorous with citations and bilingual examples."
 }
