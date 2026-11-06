@@ -10,6 +10,9 @@
 
 - `index.html` / `styles.css` / `app.js`: static glossary + search viewer
 - `data/terms-data.js`: term entries
+- `data/source-plan.json`: source roadmap and progress (Bitcoin whitepaper → milestone works → frontier papers)
+- `CURATION.md`: daily curation procedure (5 new terms every day at 07:00 Beijing time)
+- `scripts/validate_terms.py`: dataset validation (`python3 scripts/validate_terms.py`)
 
 ## View locally
 
