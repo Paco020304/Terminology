@@ -228,5 +228,197 @@ window.TERMINOLOGY_TERMS = [
     ],
     "related_terms": ["blockchain", "transaction", "timestamp", "proof-of-work"],
     "tags": ["origin", "block", "basic"]
+  },
+  {
+    "id": "hash",
+    "order": 6,
+    "term": "hash",
+    "term_zh": "哈希",
+    "aliases": ["cryptographic hash", "hash function"],
+    "part_of_speech": "noun",
+    "category": "Cryptography / 密码学",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "A hash is the fixed-size output of a hash function; in blockchain systems, cryptographic hashes are used to commit to data so that any change produces a different output.",
+    "definition_zh": "哈希是哈希函数的定长输出；在区块链系统中，密码学哈希用于承诺数据，使任何改动都会产生不同的输出。",
+    "notes_zh": "比特币使用 SHA-256。交易哈希承诺交易内容，区块哈希承诺区块头内容；篡改任一被承诺字段都会改变哈希。",
+    "citations": [
+      {
+        "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+        "publisher": "Satoshi Nakamoto",
+        "url": "https://bitcoin.org/bitcoin.pdf",
+        "accessed": "2026-11-06",
+        "note": "白皮书多处使用 hash：交易签名前一交易的哈希、用哈希链实现时间戳、用哈希承诺区块内容。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "The hash of the previous transaction is signed to prove ownership.",
+        "zh": "通过签名前一交易的哈希来证明所有权。",
+        "context": "白皮书第 3 节 Transactions。"
+      },
+      {
+        "en": "A block hash changes if any committed field changes.",
+        "zh": "如果任何被承诺的字段发生变化，区块哈希就会改变。",
+        "context": "说明哈希承诺的基本性质。"
+      }
+    ],
+    "related_terms": ["block", "transaction", "proof-of-work", "SHA-256"],
+    "tags": ["crypto", "integrity", "basic"]
+  },
+  {
+    "id": "digital-signature",
+    "order": 7,
+    "term": "digital signature",
+    "term_zh": "数字签名",
+    "aliases": ["signature"],
+    "part_of_speech": "noun",
+    "category": "Cryptography / 密码学",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "A digital signature is a cryptographic value created with a private key that allows others to verify that a message or transaction was authorized by the holder of the corresponding public key.",
+    "definition_zh": "数字签名是用私钥生成的密码学值，使他人能够验证某条消息或交易确实由对应公钥的持有者授权。",
+    "notes_zh": "数字签名证明“授权”，但不等于加密；它常与公钥密码学一起出现，用于交易授权和所有权链验证。",
+    "citations": [
+      {
+        "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+        "publisher": "Satoshi Nakamoto",
+        "url": "https://bitcoin.org/bitcoin.pdf",
+        "accessed": "2026-11-06",
+        "note": "白皮书第 3 节把电子币描述为数字签名链，并说明收款人可验证签名以验证所有权链。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "A digital signature proves authorization without revealing the private key.",
+        "zh": "数字签名在不暴露私钥的情况下证明授权。",
+        "context": "数字签名的通用性质。"
+      },
+      {
+        "en": "The payee can verify the signatures to verify the chain of ownership.",
+        "zh": "收款人可以验证签名，从而验证所有权链。",
+        "context": "白皮书第 3 节原意。"
+      }
+    ],
+    "related_terms": ["transaction", "public key", "private key", "hash"],
+    "tags": ["crypto", "authorization", "basic"]
+  },
+  {
+    "id": "proof-of-work",
+    "order": 8,
+    "term": "proof-of-work",
+    "term_zh": "工作量证明",
+    "aliases": ["PoW"],
+    "part_of_speech": "noun",
+    "category": "Consensus / 共识",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "Proof-of-work is a consensus mechanism in which participants must perform a computationally expensive task—typically finding a nonce that makes a block hash meet a target—to create or validate blocks.",
+    "definition_zh": "工作量证明是一种共识机制：参与者必须完成计算成本高昂的任务——通常是找到一个使区块哈希满足目标的 nonce——才能创建或验证区块。",
+    "notes_zh": "PoW 通过提高篡改历史的成本来保护账本；在比特币中，它同时用于为交易提供时间戳。不要把它等同于“挖矿收益”本身。",
+    "citations": [
+      {
+        "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+        "publisher": "Satoshi Nakamoto",
+        "url": "https://bitcoin.org/bitcoin.pdf",
+        "accessed": "2026-11-06",
+        "note": "白皮书第 4 节 Working Proof-of-Work 定义了基于哈希现金的工作量证明机制。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "The proof-of-work is essentially one-CPU-one-vote.",
+        "zh": "工作量证明本质上是“一 CPU 一票”。",
+        "context": "白皮书第 4 节原句。"
+      },
+      {
+        "en": "Miners vary the nonce until the block hash meets the difficulty target.",
+        "zh": "矿工不断改变 nonce，直到区块哈希满足难度目标。",
+        "context": "说明 PoW 的实际计算过程。"
+      }
+    ],
+    "related_terms": ["block", "hash", "nonce", "longest chain"],
+    "tags": ["consensus", "mining", "basic"]
+  },
+  {
+    "id": "nonce",
+    "order": 9,
+    "term": "nonce",
+    "term_zh": "随机数",
+    "aliases": ["number used once"],
+    "part_of_speech": "noun",
+    "category": "Consensus / 共识",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "In proof-of-work systems, a nonce is an arbitrary number that miners vary repeatedly until the resulting block hash satisfies the required target.",
+    "definition_zh": "在工作量证明系统中，nonce 是一个任意数字，矿工反复改变它，直到得到的区块哈希满足要求的目标。",
+    "notes_zh": "Nonce 字面意思是“number used once”，但在比特币挖矿中它更像一个被不断尝试的计数器；它是区块头字段之一。",
+    "citations": [
+      {
+        "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+        "publisher": "Satoshi Nakamoto",
+        "url": "https://bitcoin.org/bitcoin.pdf",
+        "accessed": "2026-11-06",
+        "note": "白皮书第 4 节描述了通过改变输入来寻找满足目标的哈希，即 PoW 过程。"
+      },
+      {
+        "title": "Block header",
+        "publisher": "Bitcoin Wiki",
+        "url": "https://en.bitcoin.it/wiki/Block_header",
+        "accessed": "2026-11-06",
+        "note": "比特币区块头字段列表包含 nonce，矿工在挖矿时调整该字段。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "Miners increment the nonce until the block hash has enough leading zeros.",
+        "zh": "矿工递增 nonce，直到区块哈希具有足够多的前导零。",
+        "context": "PoW 挖矿的常见实现方式。"
+      },
+      {
+        "en": "Changing the nonce changes the block hash but not the transactions.",
+        "zh": "改变 nonce 会改变区块哈希，但不会改变交易内容。",
+        "context": "说明 nonce 位于区块头而非交易体中。"
+      }
+    ],
+    "related_terms": ["proof-of-work", "block", "hash", "difficulty"],
+    "tags": ["consensus", "mining", "crypto"]
+  },
+  {
+    "id": "longest-chain",
+    "order": 10,
+    "term": "longest chain",
+    "term_zh": "最长链",
+    "aliases": ["longest-chain rule"],
+    "part_of_speech": "noun phrase",
+    "category": "Consensus / 共识",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "The longest chain is the blockchain branch with the greatest cumulative proof-of-work; nodes treat it as the valid history because it is the most expensive to rewrite.",
+    "definition_zh": "最长链是累计工作量证明最大的区块链分支；节点把它当作有效历史，因为它是重写成本最高的分支。",
+    "notes_zh": "最长链规则是比特币中最简单的共识规则：当出现分叉时，节点接受累计 PoW 最多的那条链。它不是“速度最快”，而是“最难被推翻”。",
+    "citations": [
+      {
+        "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+        "publisher": "Satoshi Nakamoto",
+        "url": "https://bitcoin.org/bitcoin.pdf",
+        "accessed": "2026-11-06",
+        "note": "白皮书第 5 节 Network 明确说明节点接受最长链作为离线期间发生情况的证明。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "Nodes accept the longest chain as proof of what happened while they were offline.",
+        "zh": "节点接受最长链作为其离线期间所发生情况的证明。",
+        "context": "白皮书第 5 节原句。"
+      },
+      {
+        "en": "A fork is resolved when one branch accumulates more proof-of-work.",
+        "zh": "当某个分支累积更多工作量证明时，分叉就会被解决。",
+        "context": "说明最长链规则如何处理分叉。"
+      }
+    ],
+    "related_terms": ["block", "proof-of-work", "consensus", "fork"],
+    "tags": ["consensus", "fork", "basic"]
   }
 ];
