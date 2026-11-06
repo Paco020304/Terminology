@@ -74,7 +74,12 @@
             "one-cpu-one-vote",
             "pruning",
             "simplified-payment-verification",
-            "51-percent-attack"
+            "51-percent-attack",
+            "chain-of-ownership",
+            "transaction-input",
+            "transaction-output",
+            "change-output",
+            "honest-node"
           ]
         }
       ]

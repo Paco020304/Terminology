@@ -1878,5 +1878,297 @@ window.TERMINOLOGY_TERMS = [
       "attack",
       "whitepaper"
     ]
+  },
+  {
+    "id": "chain-of-ownership",
+    "order": 36,
+    "term": "chain of ownership",
+    "term_zh": "所有权链",
+    "aliases": [
+      "chain of digital signatures",
+      "electronic coin"
+    ],
+    "part_of_speech": "noun phrase",
+    "category": "Transactions / 交易",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "In the Bitcoin whitepaper, an electronic coin is defined as a chain of digital signatures: each owner transfers the coin to the next by digitally signing a hash of the previous transaction and the public key of the next owner and adding these to the end of the coin, so a payee can verify the signatures to verify the chain of ownership.",
+    "definition_zh": "在比特币白皮书中，电子货币被定义为一条数字签名链：每一位所有者对“上一笔交易的哈希”和“下一位所有者的公钥”进行数字签名，并把它们附加到这枚币的末尾，从而把币转给下一位所有者；收款人可以通过验证这些签名来验证所有权链。",
+    "notes_zh": "所有权链只能证明每一次转移都经过了上一任所有者的授权，却无法证明某位所有者没有把同一枚币再签给别人（双重支付）。白皮书正是为了解决这个缺口，才引入公开广播交易、时间戳服务器和工作量证明。",
+    "citations": [
+      {
+        "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+        "publisher": "Satoshi Nakamoto",
+        "url": "https://bitcoin.org/bitcoin.pdf",
+        "accessed": "2026-11-07",
+        "note": "第 2 节 Transactions：把电子货币定义为数字签名链，收款人验证签名即可验证所有权链，但无法验证此前的所有者是否双重支付。"
+      },
+      {
+        "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+        "publisher": "Satoshi Nakamoto",
+        "url": "https://bitcoin.org/bitcoin.pdf",
+        "accessed": "2026-11-07",
+        "note": "第 12 节 Conclusion：由数字签名构成的币提供了强有力的所有权控制，但若无防止双重支付的方法则是不完整的。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "A payee can verify the signatures to verify the chain of ownership.",
+        "zh": "收款人可以通过验证签名来验证所有权链。",
+        "context": "比特币白皮书第 2 节 Transactions。"
+      },
+      {
+        "en": "Coins made from digital signatures provide strong control of ownership, but they are incomplete without a way to prevent double-spending.",
+        "zh": "由数字签名构成的币能够提供强有力的所有权控制，但如果没有防止双重支付的方法，它仍然是不完整的。",
+        "context": "根据比特币白皮书第 12 节 Conclusion 改写。"
+      }
+    ],
+    "related_terms": [
+      "digital signature",
+      "transaction",
+      "public key",
+      "double-spending"
+    ],
+    "tags": [
+      "ownership",
+      "signature",
+      "whitepaper"
+    ]
+  },
+  {
+    "id": "transaction-input",
+    "order": 37,
+    "term": "transaction input",
+    "term_zh": "交易输入",
+    "aliases": [
+      "input",
+      "TxIn",
+      "txin"
+    ],
+    "part_of_speech": "noun phrase",
+    "category": "Transactions / 交易",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "A transaction input is the part of a Bitcoin transaction that references an output of a previous transaction—identified by that transaction's hash and the output's index—together with the data (such as a signature and public key in scriptSig) needed to prove authorization to spend it; the values of all referenced outputs form the value available to the new transaction.",
+    "definition_zh": "交易输入是比特币交易中引用某个先前交易输出的部分——用该先前交易的哈希和输出序号来定位——并附带证明有权花费该输出所需的数据（例如 scriptSig 中的签名和公钥）；所有被引用输出的金额之和，构成新交易可支配的价值。",
+    "notes_zh": "输入本身并不“装着”金额，金额来自它引用的那个先前输出；并且被引用的输出必须整笔花掉，不能只花一部分。白皮书第 9 节指出，通常是一个来自较大先前交易的输入，或多个合并小额的输入；多输入交易也会暴露这些输入属于同一所有者（第 10 节）。",
+    "citations": [
+      {
+        "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+        "publisher": "Satoshi Nakamoto",
+        "url": "https://bitcoin.org/bitcoin.pdf",
+        "accessed": "2026-11-07",
+        "note": "第 9 节 Combining and Splitting Value：为了拆分与合并价值，交易包含多个输入和输出；通常是单个较大输入或多个合并小额的输入。"
+      },
+      {
+        "title": "Transaction",
+        "publisher": "Bitcoin Wiki",
+        "url": "https://en.bitcoin.it/wiki/Transaction",
+        "accessed": "2026-11-07",
+        "note": "Input 与 Txin 小节：输入是对先前交易输出的引用，包含 Previous tx 哈希、输出 Index 和 scriptSig；所有输入金额相加后（扣除手续费）全部分配给新输出。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "To allow value to be split and combined, transactions contain multiple inputs and outputs.",
+        "zh": "为了让价值能够被拆分和合并，交易包含多个输入和输出。",
+        "context": "比特币白皮书第 9 节 Combining and Splitting Value。"
+      },
+      {
+        "en": "An input is a reference to an output from a previous transaction.",
+        "zh": "输入是对某个先前交易输出的引用。",
+        "context": "Bitcoin Wiki Transaction 页面 Input 小节。"
+      }
+    ],
+    "related_terms": [
+      "transaction output",
+      "utxo",
+      "transaction",
+      "script",
+      "digital signature"
+    ],
+    "tags": [
+      "transaction-structure",
+      "utxo",
+      "whitepaper"
+    ]
+  },
+  {
+    "id": "transaction-output",
+    "order": 38,
+    "term": "transaction output",
+    "term_zh": "交易输出",
+    "aliases": [
+      "output",
+      "TxOut",
+      "txout"
+    ],
+    "part_of_speech": "noun phrase",
+    "category": "Transactions / 交易",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "A transaction output is the part of a Bitcoin transaction that assigns an amount of bitcoin (its value, in satoshis) together with a locking script (scriptPubKey) that sets the conditions for spending that amount later; each output can be referenced by an input of a subsequent transaction only once, and the outputs of a transaction share the combined value of its inputs, with any unassigned remainder treated as the transaction fee.",
+    "definition_zh": "交易输出是比特币交易中分配一笔比特币金额（以聪为单位的 value）并附带锁定脚本（scriptPubKey）的部分，锁定脚本规定了日后花费这笔金额的条件；每个输出只能被后续交易的某个输入引用一次，一笔交易的各个输出共同分配其输入的总价值，未被分配的差额即为交易手续费。",
+    "notes_zh": "尚未被任何输入引用的输出就是 UTXO；一旦被引用便成为已花费输出。白皮书第 6 节指出：若交易的输出总值小于输入总值，差额就是交易手续费，归打包该交易的区块创建者所有。",
+    "citations": [
+      {
+        "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+        "publisher": "Satoshi Nakamoto",
+        "url": "https://bitcoin.org/bitcoin.pdf",
+        "accessed": "2026-11-07",
+        "note": "第 9 节 Combining and Splitting Value：交易通常至多有两个输出，一个用于支付，一个把找零（如有）退回发送方；第 6 节 Incentive：输出值小于输入值的差额为交易手续费。"
+      },
+      {
+        "title": "Transaction",
+        "publisher": "Bitcoin Wiki",
+        "url": "https://en.bitcoin.it/wiki/Transaction",
+        "accessed": "2026-11-07",
+        "note": "Output 与 Txout 小节：输出包含 Value（以 satoshi 计）和 scriptPubKey；每个输出只能被后续交易的输入引用一次，未被输出领取的输入金额视为交易手续费。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "If the output value of a transaction is less than its input value, the difference is a transaction fee.",
+        "zh": "如果一笔交易的输出值小于其输入值，差额就是交易手续费。",
+        "context": "比特币白皮书第 6 节 Incentive。"
+      },
+      {
+        "en": "Each output from one transaction can only ever be referenced once by an input of a subsequent transaction.",
+        "zh": "一笔交易中的每个输出只能被后续交易的某个输入引用一次。",
+        "context": "Bitcoin Wiki Transaction 页面 Output 小节。"
+      }
+    ],
+    "related_terms": [
+      "transaction input",
+      "utxo",
+      "change output",
+      "transaction fee",
+      "script"
+    ],
+    "tags": [
+      "transaction-structure",
+      "utxo",
+      "whitepaper"
+    ]
+  },
+  {
+    "id": "change-output",
+    "order": 39,
+    "term": "change output",
+    "term_zh": "找零输出",
+    "aliases": [
+      "change",
+      "change address"
+    ],
+    "part_of_speech": "noun phrase",
+    "category": "Transactions / 交易",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "A change output is a transaction output that returns to the sender the part of the input value not being paid to the recipient (minus any fee); it is needed because a previous output used as an input must be spent in its entirety, so the difference is sent back, typically to a newly generated address controlled by the sender's wallet.",
+    "definition_zh": "找零输出是把输入价值中未支付给收款人的那部分（扣除手续费后）退回给发送方的交易输出；之所以需要它，是因为作为输入的先前输出必须整笔花掉，所以差额要转回发送方，通常转到发送方钱包新生成的地址。",
+    "notes_zh": "如果忘记设置找零输出，未分配的差额会全部变成交易手续费被矿工拿走。找零虽然是发给自己，但在链上看起来与普通支付输出相似；区分哪个输出是找零，正是链上隐私分析的常用手段之一。",
+    "citations": [
+      {
+        "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+        "publisher": "Satoshi Nakamoto",
+        "url": "https://bitcoin.org/bitcoin.pdf",
+        "accessed": "2026-11-07",
+        "note": "第 9 节 Combining and Splitting Value：交易通常至多两个输出——一个用于支付，一个把找零（如有）退回发送方。"
+      },
+      {
+        "title": "Change",
+        "publisher": "Bitcoin Wiki",
+        "url": "https://en.bitcoin.it/wiki/Change",
+        "accessed": "2026-11-07",
+        "note": "页面开头：输出作为另一笔交易的输入时必须整笔花掉；若金额超过想支付的数额，客户端生成新地址并把差额发回，这称为找零。"
+      },
+      {
+        "title": "Transaction",
+        "publisher": "Bitcoin Wiki",
+        "url": "https://en.bitcoin.it/wiki/Transaction",
+        "accessed": "2026-11-07",
+        "note": "Output 小节：输入 50 BTC 只想发送 25 BTC 时，会创建两个各 25 BTC 的输出，一个给收款人，一个发回自己（即 change）。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "There will be at most two outputs: one for the payment, and one returning the change, if any, back to the sender.",
+        "zh": "交易至多会有两个输出：一个用于支付，另一个把找零（如果有的话）退回给发送方。",
+        "context": "比特币白皮书第 9 节 Combining and Splitting Value。"
+      },
+      {
+        "en": "The client generates a new Bitcoin address, and sends the difference back to this address. This is known as change.",
+        "zh": "客户端会生成一个新的比特币地址，并把差额发回这个地址，这就叫作找零。",
+        "context": "Bitcoin Wiki Change 页面。"
+      }
+    ],
+    "related_terms": [
+      "transaction output",
+      "transaction input",
+      "utxo",
+      "address",
+      "wallet"
+    ],
+    "tags": [
+      "transaction-structure",
+      "privacy",
+      "whitepaper"
+    ]
+  },
+  {
+    "id": "honest-node",
+    "order": 40,
+    "term": "honest node",
+    "term_zh": "诚实节点",
+    "aliases": [
+      "honest nodes"
+    ],
+    "part_of_speech": "noun phrase",
+    "category": "Consensus / 共识",
+    "level": "intermediate",
+    "status": "draft",
+    "definition_en": "In the Bitcoin whitepaper, an honest node is a network node that follows the protocol rather than cooperating to attack the network: it accepts a block only if all transactions in it are valid and not already spent, and expresses acceptance by working to extend the longest chain. The system is secure as long as honest nodes collectively control more CPU power than any cooperating group of attacker nodes.",
+    "definition_zh": "在比特币白皮书中，诚实节点是遵循协议、而不与他人合谋攻击网络的节点：它只接受其中所有交易都有效且未被花费的区块，并通过在最长链上继续工作来表示接受。只要诚实节点合计控制的 CPU 算力多于任何合谋攻击者节点群体，系统就是安全的。",
+    "notes_zh": "“诚实”指行为上遵守协议规则，而不是道德判断，节点也无需表明身份。白皮书的安全性论证建立在“诚实算力占多数”这一假设上；第 6 节还论证了激励机制会让贪婪但理性的攻击者更愿意遵守规则。",
+    "citations": [
+      {
+        "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+        "publisher": "Satoshi Nakamoto",
+        "url": "https://bitcoin.org/bitcoin.pdf",
+        "accessed": "2026-11-07",
+        "note": "第 1 节 Introduction：只要诚实节点合计控制的 CPU 算力多于任何合谋攻击者节点群体，系统就是安全的；第 4 节 Proof-of-Work：若多数算力由诚实节点控制，诚实链增长最快。"
+      },
+      {
+        "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+        "publisher": "Satoshi Nakamoto",
+        "url": "https://bitcoin.org/bitcoin.pdf",
+        "accessed": "2026-11-07",
+        "note": "第 5 节 Network 与第 11 节 Calculations：节点只接受所有交易有效且未被花费的区块；诚实节点永远不会接受包含无效交易的区块。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "The system is secure as long as honest nodes collectively control more CPU power than any cooperating group of attacker nodes.",
+        "zh": "只要诚实节点合计控制的 CPU 算力多于任何合谋的攻击者节点群体，系统就是安全的。",
+        "context": "比特币白皮书第 1 节 Introduction。"
+      },
+      {
+        "en": "If a majority of CPU power is controlled by honest nodes, the honest chain will grow the fastest and outpace any competing chains.",
+        "zh": "如果多数 CPU 算力由诚实节点控制，诚实链就会增长得最快，并超过任何与之竞争的链。",
+        "context": "比特币白皮书第 4 节 Proof-of-Work。"
+      }
+    ],
+    "related_terms": [
+      "51% attack",
+      "longest chain",
+      "proof-of-work",
+      "consensus",
+      "hashrate"
+    ],
+    "tags": [
+      "security",
+      "consensus",
+      "whitepaper"
+    ]
   }
 ];
