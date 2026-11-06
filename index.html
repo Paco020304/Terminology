@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Terminology · 区块链英语词汇</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div class="brand">
+        <h1>Terminology</h1>
+        <p class="subtitle">区块链英语词汇 · rigorous definitions, citations, bilingual examples.</p>
+      </div>
+      <div class="search-panel" role="search">
+        <label class="sr-only" for="search">搜索词条</label>
+        <input id="search" type="search" placeholder="搜索 term / 中文 / definition / example / citation…" autocomplete="off">
+        <div class="controls">
+          <label for="category">分类</label>
+          <select id="category"><option value="">全部分类</option></select>
+          <label for="sort">排序</label>
+          <select id="sort">
+            <option value="data">数据顺序</option>
+            <option value="term">按术语 A-Z</option>
+            <option value="category">按分类</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <p id="result-count" class="result-count" aria-live="polite"></p>
+    <section id="terms" class="terms-grid" aria-label="词汇列表"></section>
+    <section id="empty" class="empty" hidden>
+      <h2 id="empty-title">暂无词条</h2>
+      <p id="empty-text">请把教材、笔记或链接整理进 <code>data/terms-data.js</code>。</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">Static glossary + search. No build step; open <code>index.html</code> directly or serve this folder.</div>
+  </footer>
+
+  <script src="data/terms-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
