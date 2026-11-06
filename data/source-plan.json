@@ -1,0 +1,40 @@
+{
+  "goal": "Add 5 curated terminology terms every day at 07:00 Asia/Shanghai",
+  "timezone": "Asia/Shanghai",
+  "batch_size": 5,
+  "source_order": [
+    {
+      "phase": "bitcoin-whitepaper",
+      "status": "in_progress",
+      "sources": [
+        {
+          "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+          "author": "Satoshi Nakamoto",
+          "url": "https://bitcoin.org/bitcoin.pdf"
+        }
+      ]
+    },
+    {
+      "phase": "ethereum-whitepaper",
+      "status": "pending",
+      "sources": [
+        {
+          "title": "Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform",
+          "author": "Vitalik Buterin",
+          "url": "https://ethereum.org/en/whitepaper/"
+        }
+      ]
+    },
+    {
+      "phase": "classic-milestone-articles",
+      "status": "pending",
+      "sources": []
+    },
+    {
+      "phase": "frontier-papers",
+      "status": "pending",
+      "sources": []
+    }
+  ],
+  "notes": "Curated terms are written to data/term-queue.json; scripts/add_daily_terms.py appends up to batch_size entries to data/terms-data.js each run."
+}

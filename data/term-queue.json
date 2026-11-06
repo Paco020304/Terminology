@@ -1,0 +1,217 @@
+[
+  {
+    "id": "public-key",
+    "term": "public key",
+    "term_zh": "公钥",
+    "aliases": ["pubkey"],
+    "part_of_speech": "noun",
+    "category": "Keys & Addresses / 密钥与地址",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "A public key is the publicly shareable part of an asymmetric key pair; in Bitcoin it is used to verify digital signatures and, after hashing, to derive payment addresses.",
+    "definition_zh": "公钥是非对称密钥对中可公开分享的部分；在比特币中，它用于验证数字签名，并在哈希后派生付款地址。",
+    "notes_zh": "公钥不是地址本身；地址通常由公钥哈希派生。任何人都可以持有公钥来验证签名，但不能用它伪造签名。",
+    "citations": [
+      {
+        "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+        "publisher": "Satoshi Nakamoto",
+        "url": "https://bitcoin.org/bitcoin.pdf",
+        "accessed": "2026-11-06",
+        "note": "白皮书第 3 节提到转移币时加入下一所有者的公钥，并用签名验证所有权链。"
+      },
+      {
+        "title": "Public key",
+        "publisher": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Public_key",
+        "accessed": "2026-11-06",
+        "note": "用于核对公钥在非对称加密中的通用定义。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "The next owner's public key is added to the end of the coin.",
+        "zh": "下一所有者的公钥被添加到币的末尾。",
+        "context": "白皮书第 3 节 Transactions。"
+      },
+      {
+        "en": "A public key can verify a signature but cannot create it.",
+        "zh": "公钥可以验证签名，但不能创建签名。",
+        "context": "说明公钥与私钥的分工。"
+      }
+    ],
+    "related_terms": ["private key", "digital signature", "address", "hash"],
+    "tags": ["keys", "crypto", "basic"]
+  },
+  {
+    "id": "private-key",
+    "term": "private key",
+    "term_zh": "私钥",
+    "aliases": ["secret key"],
+    "part_of_speech": "noun",
+    "category": "Keys & Addresses / 密钥与地址",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "A private key is the secret part of an asymmetric key pair that can create digital signatures authorizing the spending of funds associated with the corresponding public key or address.",
+    "definition_zh": "私钥是非对称密钥对中用于生成数字签名的秘密部分，可授权花费与对应公钥或地址关联的资金。",
+    "notes_zh": "私钥必须保密；丢失通常意味着对应资金无法再花费。它不是“密码”，而是密码学密钥材料。",
+    "citations": [
+      {
+        "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+        "publisher": "Satoshi Nakamoto",
+        "url": "https://bitcoin.org/bitcoin.pdf",
+        "accessed": "2026-11-06",
+        "note": "白皮书用数字签名描述所有权转移，私钥是生成这些签名的秘密。"
+      },
+      {
+        "title": "Private key",
+        "publisher": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Private_key",
+        "accessed": "2026-11-06",
+        "note": "用于核对私钥在非对称加密中的通用定义。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "Only the holder of the private key can create a satisfactory signature.",
+        "zh": "只有私钥持有者才能创建有效签名。",
+        "context": "Bitcoin Wiki Protocol documentation / Transaction 的表述。"
+      },
+      {
+        "en": "Losing the private key can make funds unspendable.",
+        "zh": "丢失私钥可能使资金无法花费。",
+        "context": "说明私钥的安全与备份重要性。"
+      }
+    ],
+    "related_terms": ["public key", "digital signature", "address", "wallet"],
+    "tags": ["keys", "crypto", "security"]
+  },
+  {
+    "id": "address",
+    "term": "address",
+    "term_zh": "地址",
+    "aliases": ["Bitcoin address", "payment address"],
+    "part_of_speech": "noun",
+    "category": "Keys & Addresses / 密钥与地址",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "In Bitcoin, an address is a user-facing identifier derived from a public key, typically a hash of it, that specifies where funds can be sent; spending from it requires the corresponding private key.",
+    "definition_zh": "在比特币中，地址是从公钥派生（通常是公钥的哈希）得到的用户侧标识符，用于指定资金可发送到的位置；从中花费资金需要对应私钥。",
+    "notes_zh": "地址不是私钥，也不是公钥本身；它更像“收款标识”。主网 P2PKH 地址通常以数字 1 开头。",
+    "citations": [
+      {
+        "title": "Technical background of version 1 Bitcoin addresses",
+        "publisher": "Bitcoin Wiki",
+        "url": "https://en.bitcoin.it/wiki/Technical_background_of_version_1_Bitcoin_addresses",
+        "accessed": "2026-11-06",
+        "note": "说明比特币地址是公钥部分的 160 位哈希，并使用 Base58Check 编码。"
+      },
+      {
+        "title": "Using Bitcoin",
+        "publisher": "Bitcoin Wiki",
+        "url": "https://en.bitcoin.it/wiki/Using_Bitcoin",
+        "accessed": "2026-11-06",
+        "note": "说明用户可以为每笔交易创建新地址以保护隐私。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "A Bitcoin address is a 160-bit hash of the public portion of a keypair.",
+        "zh": "比特币地址是密钥对公钥部分的 160 位哈希。",
+        "context": "Bitcoin Wiki technical background。"
+      },
+      {
+        "en": "You can create many addresses and use a new one for each transaction for privacy.",
+        "zh": "你可以创建多个地址，并为每笔交易使用新地址以保护隐私。",
+        "context": "Bitcoin Wiki Using Bitcoin。"
+      }
+    ],
+    "related_terms": ["public key", "private key", "wallet", "hash"],
+    "tags": ["keys", "address", "basic"]
+  },
+  {
+    "id": "transaction-fee",
+    "term": "transaction fee",
+    "term_zh": "交易手续费",
+    "aliases": ["miner fee", "tx fee"],
+    "part_of_speech": "noun",
+    "category": "Transactions / 交易",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "A transaction fee is the optional amount, equal to inputs minus outputs, that a spender adds to incentivize miners to include the transaction in a block.",
+    "definition_zh": "交易手续费是花费者额外加入的可选金额（等于输入减输出），用于激励矿工把该交易打包进区块。",
+    "notes_zh": "手续费不是付给固定机构；实际打包该交易的矿工可以通过 coinbase 交易领取。实践中更关键的是“费率”（每 vbyte 手续费）。",
+    "citations": [
+      {
+        "title": "Miner fees",
+        "publisher": "Bitcoin Wiki",
+        "url": "https://en.bitcoin.it/wiki/Miner_fees",
+        "accessed": "2026-11-06",
+        "note": "解释交易手续费等于输入与输出之差，并由打包矿工收取。"
+      },
+      {
+        "title": "Transaction",
+        "publisher": "Bitcoin Wiki",
+        "url": "https://en.bitcoin.it/wiki/Transaction",
+        "accessed": "2026-11-06",
+        "note": "说明未被输出兑现的输入金额会成为交易手续费。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "The difference between inputs and outputs is the transaction fee.",
+        "zh": "输入与输出之间的差额就是交易手续费。",
+        "context": "Bitcoin Wiki Transaction / Miner fees。"
+      },
+      {
+        "en": "A higher fee rate improves the chance of faster confirmation.",
+        "zh": "更高的费率会提高更快被确认的概率。",
+        "context": "Miner fees 对 fee rate 的说明。"
+      }
+    ],
+    "related_terms": ["transaction", "mempool", "miner", "mining reward"],
+    "tags": ["transaction", "fee", "basic"]
+  },
+  {
+    "id": "coinbase-transaction",
+    "term": "coinbase transaction",
+    "term_zh": "coinbase 交易",
+    "aliases": ["generation transaction"],
+    "part_of_speech": "noun",
+    "category": "Mining / 挖矿",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "The coinbase transaction is the first transaction in a block; it has no inputs and creates newly issued coins plus collected transaction fees for the miner.",
+    "definition_zh": "coinbase 交易是区块中的第一笔交易；它没有输入，负责创建新发行的币并把收集到的交易手续费支付给矿工。",
+    "notes_zh": "coinbase 交易也叫 generation transaction；在比特币中，它是唯一允许凭空创建新币的交易。",
+    "citations": [
+      {
+        "title": "Coinbase",
+        "publisher": "Bitcoin Wiki",
+        "url": "https://en.bitcoin.it/wiki/Coinbase",
+        "accessed": "2026-11-06",
+        "note": "解释 coinbase/generation transaction 没有父交易，负责创建新区块奖励。"
+      },
+      {
+        "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+        "publisher": "Satoshi Nakamoto",
+        "url": "https://bitcoin.org/bitcoin.pdf",
+        "accessed": "2026-11-06",
+        "note": "白皮书第 4 节说明区块第一笔交易会开启归区块创建者所有的新币。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "The first transaction in a block is a special transaction that starts a new coin owned by the creator of the block.",
+        "zh": "区块中的第一笔交易是一笔特殊交易，它开启了归区块创建者所有的新币。",
+        "context": "白皮书第 4 节原意。"
+      },
+      {
+        "en": "The coinbase transaction has no inputs and pays the block reward plus fees.",
+        "zh": "coinbase 交易没有输入，支付区块奖励和手续费。",
+        "context": "Bitcoin Wiki Coinbase / Protocol documentation。"
+      }
+    ],
+    "related_terms": ["mining reward", "transaction fee", "block", "miner"],
+    "tags": ["mining", "transaction", "basic"]
+  }
+]
