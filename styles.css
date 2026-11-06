@@ -147,6 +147,22 @@ select {
   line-height: 1.25;
 }
 
+.term-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  border: 1px solid #d7e3f5;
+  color: #274a77;
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
 .term-en {
   font-weight: 750;
 }

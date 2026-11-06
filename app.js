@@ -159,8 +159,9 @@
     return `<section class="related"><h3>Related terms</h3><div>${buttons}</div></section>`;
   }
 
-  function renderTerm(term) {
+  function renderTerm(term, index) {
     const termName = text(term.term).trim() || "Untitled";
+    const termIndex = text(term.order).trim() || String(index + 1);
     const termZh = text(term.term_zh || term.translation_zh).trim();
     const phonetic = text(term.phonetic || term.ipa).trim();
     const definitionEn = text(term.definition_en).trim();
@@ -190,7 +191,7 @@
 
     return `<article class="term-card">
       <header class="term-head">
-        <h2><span class="term-en">${escapeHtml(termName)}</span>${termZh ? ` <span class="term-zh">${escapeHtml(termZh)}</span>` : ""}</h2>
+        <h2><span class="term-index">${escapeHtml(termIndex)}</span><span class="term-en">${escapeHtml(termName)}</span>${termZh ? ` <span class="term-zh">${escapeHtml(termZh)}</span>` : ""}</h2>
         ${phonetic ? `<span class="phonetic">${escapeHtml(phonetic)}</span>` : ""}
       </header>
       ${renderBadges(term)}
@@ -213,7 +214,7 @@
     });
     filtered = sortTerms(filtered, sortMode);
 
-    termsSection.innerHTML = filtered.map(renderTerm).join("");
+    termsSection.innerHTML = filtered.map((term, index) => renderTerm(term, index)).join("");
 
     if (terms.length === 0) {
       resultCount.textContent = "尚未加载词条";
