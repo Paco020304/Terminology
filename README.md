@@ -2,6 +2,10 @@
 
 区块链英语词汇库（新手向）：英文术语 + 中文翻译 + 严谨定义 + 引用 + 中英例句。
 
+## 🌐 Live site
+
+**Visit the glossary online:** <https://paco020304.github.io/Terminology/>
+
 ## Structure
 
 - `index.html` / `styles.css` / `app.js`: static glossary + search viewer
