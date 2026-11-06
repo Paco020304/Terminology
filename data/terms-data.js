@@ -420,5 +420,211 @@ window.TERMINOLOGY_TERMS = [
     ],
     "related_terms": ["block", "proof-of-work", "consensus", "fork"],
     "tags": ["consensus", "fork", "basic"]
+  },
+  {
+    "id": "difficulty",
+    "order": 11,
+    "term": "difficulty",
+    "term_zh": "难度",
+    "aliases": ["mining difficulty", "target"],
+    "part_of_speech": "noun",
+    "category": "Mining / 挖矿",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "Difficulty is a measure of how hard it is to find a valid proof-of-work for a block; it is adjusted over time so that blocks are produced at a roughly stable rate.",
+    "definition_zh": "难度衡量找到有效工作量证明有多困难；它会随时间调整，使区块产生速度大致稳定。",
+    "notes_zh": "在比特币中，区块哈希必须小于目标值；目标值越低，难度越高。难度会按固定周期根据出块速度调整。",
+    "citations": [
+      {
+        "title": "Difficulty",
+        "publisher": "Bitcoin Wiki",
+        "url": "https://en.bitcoin.it/wiki/Difficulty",
+        "accessed": "2026-11-06",
+        "note": "解释比特币难度、目标值以及按出块速度调整难度的机制。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "The network adjusts difficulty so that blocks are found roughly every ten minutes.",
+        "zh": "网络调整难度，使区块大约每十分钟被找到一次。",
+        "context": "Bitcoin Wiki Difficulty。"
+      },
+      {
+        "en": "A lower target means higher difficulty.",
+        "zh": "目标值越低，难度越高。",
+        "context": "说明难度与目标值的关系。"
+      }
+    ],
+    "related_terms": ["proof-of-work", "nonce", "block", "miner"],
+    "tags": ["mining", "consensus", "basic"]
+  },
+  {
+    "id": "merkle-tree",
+    "order": 12,
+    "term": "merkle tree",
+    "term_zh": "默克尔树",
+    "aliases": ["hash tree", "Merkle root"],
+    "part_of_speech": "noun",
+    "category": "Cryptography / 密码学",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "A Merkle tree is a binary hash tree in which every leaf is a hash of a data block and every parent node is the hash of its children; the root commits to all leaves with a single hash.",
+    "definition_zh": "默克尔树是一种二叉哈希树：每个叶子是数据块的哈希，每个父节点是其子节点的哈希；根哈希用一个哈希承诺所有叶子。",
+    "notes_zh": "在比特币中，交易被哈希成默克尔树，默克尔根写入区块头；这使轻节点可以用较少数据验证交易是否被包含。",
+    "citations": [
+      {
+        "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+        "publisher": "Satoshi Nakamoto",
+        "url": "https://bitcoin.org/bitcoin.pdf",
+        "accessed": "2026-11-06",
+        "note": "白皮书描述交易被哈希进默克尔树，根哈希进入区块头。"
+      },
+      {
+        "title": "Merkle tree",
+        "publisher": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Merkle_tree",
+        "accessed": "2026-11-06",
+        "note": "用于核对默克尔树的通用结构与性质。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "The Merkle root lets a node verify that a transaction is included in a block without downloading all transactions.",
+        "zh": "默克尔根让节点无需下载所有交易即可验证某交易是否包含在区块中。",
+        "context": "说明 Merkle tree 的用途。"
+      },
+      {
+        "en": "Changing one transaction changes the Merkle root and therefore the block hash.",
+        "zh": "更改一笔交易会改变默克尔根，进而改变区块哈希。",
+        "context": "说明默克尔树与区块完整性的关系。"
+      }
+    ],
+    "related_terms": ["block", "hash", "transaction", "proof-of-work"],
+    "tags": ["crypto", "data-structure", "basic"]
+  },
+  {
+    "id": "mempool",
+    "order": 13,
+    "term": "mempool",
+    "term_zh": "交易池",
+    "aliases": ["memory pool", "transaction pool"],
+    "part_of_speech": "noun",
+    "category": "Transactions / 交易",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "A mempool is the set of transactions that have been broadcast to the network but not yet included in a block.",
+    "definition_zh": "交易池（mempool）是指已广播到网络但尚未被打包进区块的交易集合。",
+    "notes_zh": "交易池不是单一的全局队列；每个节点维护自己的交易池视图，并按本地策略选择交易打包。",
+    "citations": [
+      {
+        "title": "Mempool",
+        "publisher": "Bitcoin Wiki",
+        "url": "https://en.bitcoin.it/wiki/Mempool",
+        "accessed": "2026-11-06",
+        "note": "解释 mempool 是节点保存的待确认交易集合。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "A transaction waits in the mempool until a miner includes it in a block.",
+        "zh": "交易会一直留在交易池中，直到矿工把它打包进区块。",
+        "context": "Bitcoin Wiki Mempool。"
+      },
+      {
+        "en": "The mempool is not a single global queue; each node has its own view.",
+        "zh": "交易池不是单一的全局队列；每个节点都有自己的视图。",
+        "context": "说明交易池的分布式性质。"
+      }
+    ],
+    "related_terms": ["transaction", "block", "miner", "mining reward"],
+    "tags": ["transaction", "network", "basic"]
+  },
+  {
+    "id": "miner",
+    "order": 14,
+    "term": "miner",
+    "term_zh": "矿工",
+    "aliases": ["mining node"],
+    "part_of_speech": "noun",
+    "category": "Mining / 挖矿",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "A miner is a network participant that collects transactions, builds candidate blocks, and performs proof-of-work to extend the blockchain.",
+    "definition_zh": "矿工是收集交易、构建候选区块并执行工作量证明以延长区块链的网络参与者。",
+    "notes_zh": "“Miner”更精确地说是运行挖矿软件的节点；奖励支付到 coinbase 交易指定的地址，而不是必须对应某个自然人。",
+    "citations": [
+      {
+        "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+        "publisher": "Satoshi Nakamoto",
+        "url": "https://bitcoin.org/bitcoin.pdf",
+        "accessed": "2026-11-06",
+        "note": "白皮书第 4 节描述节点通过 PoW 把交易打包成区块并广播。"
+      },
+      {
+        "title": "Mining",
+        "publisher": "Bitcoin Wiki",
+        "url": "https://en.bitcoin.it/wiki/Mining",
+        "accessed": "2026-11-06",
+        "note": "解释挖矿节点如何收集交易、构建区块并竞争有效哈希。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "A miner packages pending transactions into a block and searches for a valid nonce.",
+        "zh": "矿工把待处理交易打包成区块，并搜索有效的 nonce。",
+        "context": "白皮书 PoW 过程。"
+      },
+      {
+        "en": "The first transaction in a block pays the miner.",
+        "zh": "区块中的第一笔交易支付给矿工。",
+        "context": "白皮书第 4 节对创世交易的描述。"
+      }
+    ],
+    "related_terms": ["proof-of-work", "nonce", "difficulty", "mining reward"],
+    "tags": ["mining", "consensus", "basic"]
+  },
+  {
+    "id": "mining-reward",
+    "order": 15,
+    "term": "mining reward",
+    "term_zh": "挖矿奖励",
+    "aliases": ["block reward", "coinbase reward"],
+    "part_of_speech": "noun",
+    "category": "Mining / 挖矿",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "The mining reward is the newly created coins plus transaction fees awarded to the miner who successfully adds a block to the blockchain.",
+    "definition_zh": "挖矿奖励是奖励给成功把区块加入区块链的矿工的新产生币和交易手续费。",
+    "notes_zh": "在比特币中，奖励通过 coinbase 交易支付；补贴会随发行计划逐渐减少，手续费则来自被打包交易。",
+    "citations": [
+      {
+        "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+        "publisher": "Satoshi Nakamoto",
+        "url": "https://bitcoin.org/bitcoin.pdf",
+        "accessed": "2026-11-06",
+        "note": "白皮书第 4 节说明区块第一笔交易会开启归区块创建者所有的新币。"
+      },
+      {
+        "title": "Block reward",
+        "publisher": "Bitcoin Wiki",
+        "url": "https://en.bitcoin.it/wiki/Block_reward",
+        "accessed": "2026-11-06",
+        "note": "解释区块奖励由新币补贴和交易手续费组成，并随减半周期变化。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "The miner receives the block reward through the coinbase transaction.",
+        "zh": "矿工通过 coinbase 交易获得区块奖励。",
+        "context": "白皮书第 4 节。"
+      },
+      {
+        "en": "Transaction fees are added to the block reward.",
+        "zh": "交易手续费会加到区块奖励中。",
+        "context": "区块奖励的组成部分。"
+      }
+    ],
+    "related_terms": ["miner", "coinbase transaction", "transaction fee", "block"],
+    "tags": ["mining", "reward", "basic"]
   }
 ];
