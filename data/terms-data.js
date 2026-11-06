@@ -1604,5 +1604,279 @@ window.TERMINOLOGY_TERMS = [
       "advanced-basic"
     ],
     "order": 30
+  },
+  {
+    "id": "trusted-third-party",
+    "order": 31,
+    "term": "trusted third party",
+    "term_zh": "可信第三方",
+    "aliases": [
+      "TTP",
+      "trusted intermediary"
+    ],
+    "part_of_speech": "noun phrase",
+    "category": "Origin / 起源",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "A trusted third party is an intermediary, such as a financial institution or a central mint, that both sides of a payment must rely on to process the transaction and prevent double-spending; the Bitcoin whitepaper proposes replacing this trust with cryptographic proof.",
+    "definition_zh": "可信第三方是支付双方都必须依赖的中介（例如金融机构或中央铸币方），由它处理交易并防止双重支付；比特币白皮书提出用密码学证明取代这种信任。",
+    "notes_zh": "白皮书并不是说密码学能消除一切信任，而是去掉“必须经过某个中心机构”这一点；系统安全转而依赖“诚实节点控制多数算力”的假设。",
+    "citations": [
+      {
+        "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+        "publisher": "Satoshi Nakamoto",
+        "url": "https://bitcoin.org/bitcoin.pdf",
+        "accessed": "2026-11-06",
+        "note": "Abstract 与第 1 节 Introduction：指出电子支付依赖金融机构作为可信第三方，并提出基于密码学证明而非信任的支付系统；第 2 节将中央铸币方（mint）作为对照方案。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "Commerce on the Internet has come to rely almost exclusively on financial institutions serving as trusted third parties to process electronic payments.",
+        "zh": "互联网商业几乎完全依赖金融机构充当可信第三方来处理电子支付。",
+        "context": "比特币白皮书第 1 节 Introduction。"
+      },
+      {
+        "en": "What is needed is an electronic payment system based on cryptographic proof instead of trust, allowing any two willing parties to transact directly with each other without the need for a trusted third party.",
+        "zh": "我们需要的是一种基于密码学证明而非信任的电子支付系统，让任意两个自愿的参与方无需可信第三方就能直接交易。",
+        "context": "比特币白皮书第 1 节 Introduction。"
+      }
+    ],
+    "related_terms": [
+      "peer-to-peer",
+      "double-spending",
+      "digital signature",
+      "consensus"
+    ],
+    "tags": [
+      "origin",
+      "trust",
+      "whitepaper"
+    ]
+  },
+  {
+    "id": "one-cpu-one-vote",
+    "order": 32,
+    "term": "one-CPU-one-vote",
+    "term_zh": "一 CPU 一票",
+    "aliases": [
+      "one CPU one vote"
+    ],
+    "part_of_speech": "noun phrase",
+    "category": "Consensus / 共识",
+    "level": "intermediate",
+    "status": "draft",
+    "definition_en": "One-CPU-one-vote is the Bitcoin whitepaper's description of proof-of-work as a voting rule: influence over the majority decision is proportional to computational power rather than to identities such as IP addresses, and the majority decision is represented by the longest chain, which has the greatest proof-of-work invested in it.",
+    "definition_zh": "“一 CPU 一票”是比特币白皮书对工作量证明投票规则的描述：对多数决策的影响力与计算能力成正比，而不是与 IP 地址等身份数量成正比；多数决策由投入工作量证明最多的最长链来体现。",
+    "notes_zh": "这里的“CPU”泛指算力，并非字面意义上的处理器个数；如今挖矿使用 ASIC，影响力按算力（hashrate）而非设备或节点数量计算。它的提出是为了抵御靠伪造大量身份（如分配大量 IP）来操纵投票的攻击。",
+    "citations": [
+      {
+        "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+        "publisher": "Satoshi Nakamoto",
+        "url": "https://bitcoin.org/bitcoin.pdf",
+        "accessed": "2026-11-06",
+        "note": "第 4 节 Proof-of-Work：对比 one-IP-address-one-vote 可被分配大量 IP 的人操纵，指出工作量证明本质上是 one-CPU-one-vote，多数决策由最长链体现。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "If the majority were based on one-IP-address-one-vote, it could be subverted by anyone able to allocate many IPs. Proof-of-work is essentially one-CPU-one-vote.",
+        "zh": "如果多数决策基于“一个 IP 地址一票”，任何能分配大量 IP 的人都可以颠覆它。工作量证明本质上是“一 CPU 一票”。",
+        "context": "比特币白皮书第 4 节 Proof-of-Work。"
+      },
+      {
+        "en": "Under one-CPU-one-vote, running many nodes on one laptop does not add voting power; only additional hashing power does.",
+        "zh": "在“一 CPU 一票”规则下，在一台笔记本上运行许多节点并不会增加投票权，只有增加算力才会。",
+        "context": "解释工作量证明抗女巫攻击的场景。"
+      }
+    ],
+    "related_terms": [
+      "proof-of-work",
+      "longest chain",
+      "hashrate",
+      "consensus"
+    ],
+    "tags": [
+      "consensus",
+      "proof-of-work",
+      "whitepaper"
+    ]
+  },
+  {
+    "id": "pruning",
+    "order": 33,
+    "term": "pruning",
+    "term_zh": "修剪",
+    "aliases": [
+      "reclaiming disk space",
+      "blockchain pruning"
+    ],
+    "part_of_speech": "noun",
+    "category": "Scaling / 扩容",
+    "level": "intermediate",
+    "status": "draft",
+    "definition_en": "Pruning is discarding transaction data that is no longer needed once outputs are fully spent and buried under enough blocks; because transactions are hashed into a Merkle tree and only the root is included in the block's hash, old blocks can be compacted by stubbing off branches without breaking the block hash.",
+    "definition_zh": "修剪是指在输出已被完全花费、且其所在区块之后已有足够多区块时，丢弃不再需要的交易数据；由于交易被哈希进默克尔树、只有根被纳入区块哈希，因此可以剪掉树的分支来压缩旧区块，而不会破坏区块哈希。",
+    "notes_zh": "修剪只是节省本地存储，不改变共识规则，也不会删除网络中其他节点保存的数据；修剪后的节点仍需保留区块头和未花费输出等验证所需的数据。“Pruning”在白皮书第 7 节的图中出现，该节标题为 Reclaiming Disk Space。",
+    "citations": [
+      {
+        "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+        "publisher": "Satoshi Nakamoto",
+        "url": "https://bitcoin.org/bitcoin.pdf",
+        "accessed": "2026-11-06",
+        "note": "第 7 节 Reclaiming Disk Space：交易被埋在足够多区块之下后可丢弃已花费交易；Merkle 树只把根纳入区块哈希，旧区块可剪掉分支压缩（图示 After Pruning Tx0-2 from the Block）。"
+      },
+      {
+        "title": "Scalability",
+        "publisher": "Bitcoin Wiki",
+        "url": "https://en.bitcoin.it/wiki/Scalability",
+        "accessed": "2026-11-06",
+        "note": "Storage 部分：说明白皮书描述的 pruning 可删除已完全花费交易的数据，使全验证节点只需保存当前未花费输出集及处理重组所需数据。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "Once the latest transaction in a coin is buried under enough blocks, the spent transactions before it can be discarded to save disk space.",
+        "zh": "一旦某个币的最新交易被埋在足够多的区块之下，它之前已花费的交易就可以被丢弃以节省磁盘空间。",
+        "context": "比特币白皮书第 7 节 Reclaiming Disk Space。"
+      },
+      {
+        "en": "In Satoshi's paper he describes \"pruning\", a way to delete unnecessary data about transactions that are fully spent.",
+        "zh": "中本聪在论文中描述了“修剪”，即删除关于已完全花费交易的不必要数据的方法。",
+        "context": "Bitcoin Wiki Scalability 页面。"
+      }
+    ],
+    "related_terms": [
+      "merkle tree",
+      "block",
+      "utxo",
+      "full node"
+    ],
+    "tags": [
+      "storage",
+      "scaling",
+      "whitepaper"
+    ]
+  },
+  {
+    "id": "simplified-payment-verification",
+    "order": 34,
+    "term": "simplified payment verification",
+    "term_zh": "简化支付验证",
+    "aliases": [
+      "SPV",
+      "SPV client",
+      "thin client"
+    ],
+    "part_of_speech": "noun phrase",
+    "category": "Scaling / 扩容",
+    "level": "intermediate",
+    "status": "draft",
+    "definition_en": "Simplified payment verification (SPV) is a method for verifying payments without running a full network node: the user keeps only the block headers of the longest proof-of-work chain and obtains the Merkle branch linking a transaction to the block it is timestamped in, which shows that the network has accepted it.",
+    "definition_zh": "简化支付验证（SPV）是一种无需运行完整网络节点即可验证支付的方法：用户只保存最长工作量证明链的区块头，并获取把交易连接到其所在区块的默克尔分支，从而确认网络已接受该交易。",
+    "notes_zh": "SPV 证明的是“交易被包含在某个高工作量区块中”，而不是“交易本身有效”；白皮书指出只要诚实节点控制网络它就可靠，但在攻击者算力占优时，SPV 用户可能被伪造交易欺骗。",
+    "citations": [
+      {
+        "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+        "publisher": "Satoshi Nakamoto",
+        "url": "https://bitcoin.org/bitcoin.pdf",
+        "accessed": "2026-11-06",
+        "note": "第 8 节 Simplified Payment Verification：用户只需保存最长链区块头并获取 Merkle 分支；在网络被攻击者压制时更脆弱。"
+      },
+      {
+        "title": "Scalability",
+        "publisher": "Bitcoin Wiki",
+        "url": "https://en.bitcoin.it/wiki/Scalability",
+        "accessed": "2026-11-06",
+        "note": "Simplified payment verification 小节：SPV 客户端只下载区块头，检查区块头相连且难度足够高，并通过 Merkle 分支证明交易被包含。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "It is possible to verify payments without running a full network node.",
+        "zh": "不运行完整网络节点也可以验证支付。",
+        "context": "比特币白皮书第 8 节 Simplified Payment Verification。"
+      },
+      {
+        "en": "In SPV mode, clients connect to an arbitrary full node and download only the block headers.",
+        "zh": "在 SPV 模式下，客户端连接任意一个全节点，并且只下载区块头。",
+        "context": "Bitcoin Wiki Scalability 页面。"
+      }
+    ],
+    "related_terms": [
+      "merkle tree",
+      "block",
+      "longest chain",
+      "full node"
+    ],
+    "tags": [
+      "spv",
+      "verification",
+      "whitepaper"
+    ]
+  },
+  {
+    "id": "51-percent-attack",
+    "order": 35,
+    "term": "51% attack",
+    "term_zh": "51% 攻击",
+    "aliases": [
+      "majority attack",
+      ">50% attack"
+    ],
+    "part_of_speech": "noun phrase",
+    "category": "Consensus / 共识",
+    "level": "intermediate",
+    "status": "draft",
+    "definition_en": "A 51% attack (majority attack) is an attack in which an attacker controlling more than half of the network's hashrate privately mines an alternate chain that outpaces the honest chain, allowing the attacker to reverse their own recent transactions (double-spend) and to exclude or reorder transactions while in control.",
+    "definition_zh": "51% 攻击（多数攻击）是指攻击者控制超过一半的全网算力，私下挖出一条比诚实链增长更快的替代链，从而在控制期间撤销自己最近的交易（双重支付），并排除或重排交易。",
+    "notes_zh": "51% 攻击者不能凭空造币、不能花费不属于自己的币、也不能改变区块奖励，因为诚实节点不会接受包含无效交易的区块。白皮书第 11 节表明，算力少于一半的攻击者追上诚实链的概率随落后区块数呈指数下降；超过一半时则最终必然成功。",
+    "citations": [
+      {
+        "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+        "publisher": "Satoshi Nakamoto",
+        "url": "https://bitcoin.org/bitcoin.pdf",
+        "accessed": "2026-11-06",
+        "note": "第 11 节 Calculations：分析攻击者生成比诚实链更快的替代链，指出攻击者只能尝试改回自己的交易，并用赌徒破产模型计算追上的概率。"
+      },
+      {
+        "title": "Majority attack",
+        "publisher": "Bitcoin Wiki",
+        "url": "https://en.bitcoin.it/wiki/Majority_attack",
+        "accessed": "2026-11-06",
+        "note": "定义 majority attack（通常称 51% attack），并说明攻击者控制过半算力时成功概率为 100%。"
+      },
+      {
+        "title": "Weaknesses",
+        "publisher": "Bitcoin Wiki",
+        "url": "https://en.bitcoin.it/wiki/Weaknesses",
+        "accessed": "2026-11-06",
+        "note": "Attacker has a lot of computing power 小节：列出控制超过 50% 算力的攻击者能做和不能做的事。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "An attacker can only try to change one of his own transactions to take back money he recently spent.",
+        "zh": "攻击者只能尝试修改他自己的某笔交易，以收回他最近花出去的钱。",
+        "context": "比特币白皮书第 11 节 Calculations。"
+      },
+      {
+        "en": "If the attacker controls more than half of the network hashrate, this has a probability of 100% to succeed.",
+        "zh": "如果攻击者控制了超过一半的全网算力，这种攻击的成功概率为 100%。",
+        "context": "Bitcoin Wiki Majority attack 页面。"
+      }
+    ],
+    "related_terms": [
+      "double-spending",
+      "hashrate",
+      "longest chain",
+      "reorganization",
+      "confirmation"
+    ],
+    "tags": [
+      "security",
+      "attack",
+      "whitepaper"
+    ]
   }
 ];
