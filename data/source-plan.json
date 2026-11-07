@@ -79,7 +79,12 @@
             "transaction-input",
             "transaction-output",
             "change-output",
-            "honest-node"
+            "honest-node",
+            "full-node",
+            "broadcast",
+            "incentive",
+            "pseudonymity",
+            "address-reuse"
           ]
         }
       ]

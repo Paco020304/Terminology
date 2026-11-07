@@ -2170,5 +2170,291 @@ window.TERMINOLOGY_TERMS = [
       "consensus",
       "whitepaper"
     ]
+  },
+  {
+    "id": "full-node",
+    "order": 41,
+    "term": "full node",
+    "term_zh": "全节点",
+    "aliases": [
+      "full network node",
+      "fully validating node"
+    ],
+    "part_of_speech": "noun phrase",
+    "category": "Consensus / 共识",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "A full node is a Bitcoin node that downloads every block and transaction and independently checks them against all of the consensus rules, rejecting any block or transaction that violates them even if other nodes accept it. The Bitcoin whitepaper contrasts running a full network node with simplified payment verification, in which a user keeps only block headers and relies on the network for transaction validity.",
+    "definition_zh": "全节点是下载每一个区块和每一笔交易、并独立按照全部共识规则进行校验的比特币节点；任何违反规则的区块或交易都会被它拒绝，即使其他节点接受了也一样。比特币白皮书把“运行完整的网络节点”与简化支付验证（SPV）相对照：后者只保存区块头，交易是否有效要依赖网络来判断。",
+    "notes_zh": "全节点不等于矿工：全节点负责验证和转发，不一定参与挖矿。全节点也不必保存全部历史区块——启用修剪（pruning）后仍是完整验证的全节点；对外提供旧区块下载的称为归档节点（archival node）。",
+    "citations": [
+      {
+        "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+        "publisher": "Satoshi Nakamoto",
+        "url": "https://bitcoin.org/bitcoin.pdf",
+        "accessed": "2026-11-08",
+        "note": "第 8 节 Simplified Payment Verification：无需运行完整的网络节点（full network node）也能验证支付；SPV 用户无法自行检查交易，频繁收款的企业可能仍希望运行自己的节点，以获得更独立的安全性和更快的验证。"
+      },
+      {
+        "title": "Full node",
+        "publisher": "Bitcoin Wiki",
+        "url": "https://en.bitcoin.it/wiki/Full_node",
+        "accessed": "2026-11-08",
+        "note": "页面开头与 What makes a full node? 小节：完全验证比特币所有规则的节点称为全节点；全节点下载每个区块和交易并按共识规则检查，违规者一律拒绝；Archival Nodes 小节说明修剪后仍是全节点。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "It is possible to verify payments without running a full network node.",
+        "zh": "不运行完整的网络节点，也可以验证支付。",
+        "context": "比特币白皮书第 8 节 Simplified Payment Verification。"
+      },
+      {
+        "en": "If a transaction or block violates the consensus rules, then it is absolutely rejected by a full node, even if every other node on the network thinks that it is valid.",
+        "zh": "如果某笔交易或某个区块违反共识规则，全节点就会坚决拒绝它，即使网络上其他所有节点都认为它有效。",
+        "context": "改写自 Bitcoin Wiki Full node 页面。"
+      }
+    ],
+    "related_terms": [
+      "simplified payment verification",
+      "pruning",
+      "consensus",
+      "block",
+      "miner"
+    ],
+    "tags": [
+      "node",
+      "validation",
+      "whitepaper"
+    ]
+  },
+  {
+    "id": "broadcast",
+    "order": 42,
+    "term": "broadcast",
+    "term_zh": "广播",
+    "aliases": [
+      "transaction broadcast",
+      "block broadcast",
+      "relay"
+    ],
+    "part_of_speech": "verb / noun",
+    "category": "Origin / 起源",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "In Bitcoin, to broadcast is to propagate a new transaction or a newly found block across the peer-to-peer network so that other nodes receive it: new transactions are broadcast to all nodes, and a node that finds a proof-of-work broadcasts its block to all nodes. Broadcasting is best effort; a transaction only needs to reach many nodes to be included in a block before long, and a node that misses a block requests it when it receives the next one.",
+    "definition_zh": "在比特币中，广播是指把新交易或新找到的区块在点对点网络中传播出去，让其他节点收到：新交易会广播给所有节点，找到工作量证明的节点会把它的区块广播给所有节点。广播是“尽力而为”的：交易只要到达足够多的节点，很快就会被打包进区块；某节点若漏收了一个区块，会在收到下一个区块时发现缺失并请求补发。",
+    "notes_zh": "广播不是中心服务器群发，而是节点之间逐跳转发（relay）：实际实现中节点先用 inv 消息通告，对方再用 getdata 请求完整数据。交易“已广播”只表示进入了网络，不代表已被确认。",
+    "citations": [
+      {
+        "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+        "publisher": "Satoshi Nakamoto",
+        "url": "https://bitcoin.org/bitcoin.pdf",
+        "accessed": "2026-11-08",
+        "note": "摘要与第 5 节 Network：消息以尽力而为（best effort）的方式广播；步骤 1) 新交易广播给所有节点，步骤 4) 找到工作量证明的节点把区块广播给所有节点；交易广播无需到达所有节点，区块广播也能容忍丢失的消息。"
+      },
+      {
+        "title": "Network",
+        "publisher": "Bitcoin Wiki",
+        "url": "https://en.bitcoin.it/wiki/Network",
+        "accessed": "2026-11-08",
+        "note": "页面开头与 Standard relaying 小节：比特币使用简单的广播网络传播交易和区块；节点用 inv 通告、getdata 请求，验证有效后再向其他对等节点转发。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "When a node finds a proof-of-work, it broadcasts the block to all nodes.",
+        "zh": "当某个节点找到工作量证明时，它会把该区块广播给所有节点。",
+        "context": "比特币白皮书第 5 节 Network。"
+      },
+      {
+        "en": "New transaction broadcasts do not necessarily need to reach all nodes. As long as they reach many nodes, they will get into a block before long.",
+        "zh": "新交易的广播不一定要到达所有节点。只要到达了许多节点，它们很快就会被打包进区块。",
+        "context": "比特币白皮书第 5 节 Network。"
+      }
+    ],
+    "related_terms": [
+      "peer-to-peer",
+      "transaction",
+      "block",
+      "mempool",
+      "confirmation"
+    ],
+    "tags": [
+      "network",
+      "propagation",
+      "whitepaper"
+    ]
+  },
+  {
+    "id": "incentive",
+    "order": 43,
+    "term": "incentive",
+    "term_zh": "激励",
+    "aliases": [
+      "mining incentive",
+      "incentive mechanism"
+    ],
+    "part_of_speech": "noun",
+    "category": "Mining / 挖矿",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "In the Bitcoin whitepaper, the incentive is the reward that motivates nodes to support the network: the first transaction in each block creates new coins owned by the block's creator, and transaction fees are added to it. Besides distributing coins without a central issuer, the incentive is meant to make honest behaviour more profitable than attacking, since a greedy attacker with majority CPU power should earn more by following the rules than by undermining the system.",
+    "definition_zh": "在比特币白皮书中，激励是促使节点支持网络的奖励：每个区块的第一笔交易会凭空产生归区块创建者所有的新币，交易手续费也会计入其中。激励除了在没有中心发行方的情况下把币分发出去，还旨在让诚实行为比攻击更有利可图——即使贪婪的攻击者掌握多数 CPU 算力，遵守规则所得也应多于破坏系统。",
+    "notes_zh": "“激励”是白皮书第 6 节的设计思想，具体载体是挖矿奖励（新币补贴 + 手续费）。当预定数量的币全部进入流通后，激励将完全转为手续费。激励只是让攻击“不划算”，并不能在技术上阻止多数算力攻击。",
+    "citations": [
+      {
+        "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+        "publisher": "Satoshi Nakamoto",
+        "url": "https://bitcoin.org/bitcoin.pdf",
+        "accessed": "2026-11-08",
+        "note": "第 6 节 Incentive：区块第一笔交易产生归区块创建者的新币，为节点支持网络提供激励并分发货币；激励也可由交易手续费提供，最终可完全转为手续费；激励可能有助于让节点保持诚实。"
+      },
+      {
+        "title": "Mining",
+        "publisher": "Bitcoin Wiki",
+        "url": "https://en.bitcoin.it/wiki/Mining",
+        "accessed": "2026-11-08",
+        "note": "页面开头：矿工获得交易手续费以及新创造币的“补贴”，这既以去中心化方式分发新币，也激励人们为系统提供安全性。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "The incentive may help encourage nodes to stay honest.",
+        "zh": "激励机制可能有助于促使节点保持诚实。",
+        "context": "比特币白皮书第 6 节 Incentive。"
+      },
+      {
+        "en": "Once a predetermined number of coins have entered circulation, the incentive can transition entirely to transaction fees and be completely inflation free.",
+        "zh": "一旦预定数量的币进入流通，激励就可以完全过渡到交易手续费，从而完全没有通胀。",
+        "context": "比特币白皮书第 6 节 Incentive。"
+      }
+    ],
+    "related_terms": [
+      "mining reward",
+      "transaction fee",
+      "coinbase transaction",
+      "honest node",
+      "halving"
+    ],
+    "tags": [
+      "economics",
+      "mining",
+      "whitepaper"
+    ]
+  },
+  {
+    "id": "pseudonymity",
+    "order": 44,
+    "term": "pseudonymity",
+    "term_zh": "假名性",
+    "aliases": [
+      "pseudonymous",
+      "pseudo-anonymity"
+    ],
+    "part_of_speech": "noun",
+    "category": "Privacy / 隐私",
+    "level": "intermediate",
+    "status": "draft",
+    "definition_en": "Pseudonymity is the privacy model in which participants act under identifiers that are not directly tied to their real-world identity. In Bitcoin, every transaction is announced publicly, so privacy comes from keeping public keys (addresses) anonymous: anyone can see that some amount moved from one key to another, but not who owns those keys, unless other information links a key to its owner.",
+    "definition_zh": "假名性是一种隐私模型：参与者以不直接关联其真实身份的标识进行活动。在比特币中，所有交易都要公开广播，因此隐私来自让公钥（地址）保持匿名：任何人都能看到一定金额从一个密钥转到另一个密钥，却不知道这些密钥属于谁——除非有其他信息把某个密钥与其所有者关联起来。",
+    "notes_zh": "比特币是假名的，而不是完全匿名的：交易历史永久公开，一旦某个地址与身份关联，就可能顺藤摸瓜追溯更多交易。白皮书本身没有用 pseudonymity 这个词，它描述的是“保持公钥匿名”的新隐私模型；“假名”这一说法来自后续文献与社区。",
+    "citations": [
+      {
+        "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+        "publisher": "Satoshi Nakamoto",
+        "url": "https://bitcoin.org/bitcoin.pdf",
+        "accessed": "2026-11-08",
+        "note": "第 10 节 Privacy：传统银行通过限制信息访问实现隐私；比特币必须公开所有交易，但可以通过保持公钥匿名来切断信息流——公众能看到有人向某人转账，却没有把交易关联到任何人的信息；配图 New Privacy Model。"
+      },
+      {
+        "title": "Privacy",
+        "publisher": "Bitcoin Wiki",
+        "url": "https://en.bitcoin.it/wiki/Privacy",
+        "accessed": "2026-11-08",
+        "note": "Why privacy 小节：比特币白皮书承诺通过假名地址（pseudonymous addresses）绕开账本公开可见的问题；Introduction 部分说明找到一个地址的身份即可攻击相关交易的匿名性。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "The public can see that someone is sending an amount to someone else, but without information linking the transaction to anyone.",
+        "zh": "公众可以看到某人向另一个人发送了一笔金额，但没有任何信息把这笔交易关联到具体的人。",
+        "context": "比特币白皮书第 10 节 Privacy。"
+      },
+      {
+        "en": "Bitcoin offers pseudonymity rather than anonymity, because once an address is linked to a person, its whole public history can be traced.",
+        "zh": "比特币提供的是假名性而非匿名性，因为一旦某个地址与某个人关联起来，它的全部公开历史都可以被追溯。",
+        "context": "说明假名性与匿名性的区别。"
+      }
+    ],
+    "related_terms": [
+      "public key",
+      "address",
+      "address reuse",
+      "transaction",
+      "wallet"
+    ],
+    "tags": [
+      "privacy",
+      "identity",
+      "whitepaper"
+    ]
+  },
+  {
+    "id": "address-reuse",
+    "order": 45,
+    "term": "address reuse",
+    "term_zh": "地址复用",
+    "aliases": [
+      "key reuse",
+      "reused address"
+    ],
+    "part_of_speech": "noun phrase",
+    "category": "Privacy / 隐私",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "Address reuse is the practice of using the same Bitcoin address (and thus the same key pair) for more than one transaction. It weakens privacy because all transactions involving the address can be linked to a common owner; the Bitcoin whitepaper therefore recommends using a new key pair for each transaction as an additional firewall, and modern wallets generate a fresh address for every payment received.",
+    "definition_zh": "地址复用是指把同一个比特币地址（也就是同一对密钥）用于多笔交易的做法。它会削弱隐私，因为涉及该地址的所有交易都能被关联到同一个所有者；因此比特币白皮书建议每笔交易使用新的密钥对，作为额外的“防火墙”，现代钱包也会为每次收款生成新地址。",
+    "notes_zh": "地址复用不会让资金直接被盗，但会暴露余额和交易关系，也会伤害交易对手的隐私。即使不复用地址，多输入交易仍会暴露这些输入属于同一所有者（白皮书第 10 节已指出这种无法避免的关联）。",
+    "citations": [
+      {
+        "title": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+        "publisher": "Satoshi Nakamoto",
+        "url": "https://bitcoin.org/bitcoin.pdf",
+        "accessed": "2026-11-08",
+        "note": "第 10 节 Privacy：作为额外的防火墙，每笔交易应使用新的密钥对，以免它们被关联到同一个所有者；多输入交易仍不可避免地暴露其输入属于同一所有者；一旦某个密钥的所有者暴露，关联可能揭示其他交易。"
+      },
+      {
+        "title": "Address reuse",
+        "publisher": "Bitcoin Wiki",
+        "url": "https://en.bitcoin.it/wiki/Address_reuse",
+        "accessed": "2026-11-08",
+        "note": "页面开头：地址复用指同一地址用于多笔交易，会损害交易参与者及资金后续持有者的隐私与安全；最私密安全的用法是给每个付款人提供全新地址。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "As an additional firewall, a new key pair should be used for each transaction to keep them from being linked to a common owner.",
+        "zh": "作为额外的防火墙，每笔交易都应使用新的密钥对，以免这些交易被关联到同一个所有者。",
+        "context": "比特币白皮书第 10 节 Privacy。"
+      },
+      {
+        "en": "The most private and secure way to use bitcoin is to send a brand new address to each person who pays you.",
+        "zh": "使用比特币最私密、最安全的方式，是给每个向你付款的人提供一个全新的地址。",
+        "context": "Bitcoin Wiki Address reuse 页面。"
+      }
+    ],
+    "related_terms": [
+      "address",
+      "pseudonymity",
+      "change output",
+      "wallet",
+      "public key"
+    ],
+    "tags": [
+      "privacy",
+      "wallet",
+      "whitepaper"
+    ]
   }
 ];
