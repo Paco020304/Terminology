@@ -2456,5 +2456,284 @@ window.TERMINOLOGY_TERMS = [
       "wallet",
       "whitepaper"
     ]
+  },
+  {
+    "id": "smart-contract",
+    "order": 46,
+    "term": "smart contract",
+    "term_zh": "智能合约",
+    "aliases": [
+      "smart contracts"
+    ],
+    "part_of_speech": "noun phrase",
+    "category": "Smart Contracts / 智能合约",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "A smart contract is a program stored on a blockchain that controls digital assets according to rules written in its code. In the Ethereum whitepaper, smart contracts are described as cryptographic \"boxes\" that contain value and only unlock it if certain conditions are met; on Ethereum a smart contract lives at its own address as a contract account with code and storage, and it runs whenever a transaction or message is sent to it.",
+    "definition_zh": "智能合约是存储在区块链上、按照代码中写定的规则控制数字资产的程序。以太坊白皮书把智能合约描述为装有价值、只有在满足特定条件时才会解锁的密码学“盒子”；在以太坊上，智能合约以合约账户的形式位于自己的地址，带有代码和存储，每当有交易或消息发给它时就会运行。",
+    "notes_zh": "“合约”不是法律意义上需要“履行”的合同：白皮书强调它更像生活在以太坊执行环境中的“自治代理”，被调用时总是执行固定代码。比特币脚本也能实现弱形式的智能合约，但缺少图灵完备性、价值感知、区块链感知和状态。部署后的代码默认不可修改，交互也不可撤销。",
+    "citations": [
+      {
+        "title": "Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform",
+        "publisher": "Vitalik Buterin / ethereum.org",
+        "url": "https://ethereum.org/en/whitepaper/",
+        "accessed": "2026-11-09",
+        "note": "Introduction 与 Ethereum 一节：智能合约是由实现任意规则的代码直接控制数字资产的应用，是只有在满足特定条件时才解锁其中价值的密码学“盒子”；Ethereum Accounts 一节：合约更像生活在以太坊执行环境中的“自治代理”。"
+      },
+      {
+        "title": "Introduction to smart contracts",
+        "publisher": "ethereum.org",
+        "url": "https://ethereum.org/en/developers/docs/smart-contracts/",
+        "accessed": "2026-11-09",
+        "note": "What is a smart contract?：智能合约就是运行在以太坊区块链上的程序，是位于特定地址的代码（函数）与数据（状态）的集合；它是一种以太坊账户，不由用户控制，而是部署后按程序运行。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "Smart contracts, cryptographic \"boxes\" that contain value and only unlock it if certain conditions are met, can also be built on top of the platform.",
+        "zh": "智能合约——装有价值、只有在满足特定条件时才解锁的密码学“盒子”——也可以构建在这个平台之上。",
+        "context": "以太坊白皮书 Ethereum 一节。"
+      },
+      {
+        "en": "Deploying a smart contract is technically a transaction, so you need to pay gas just as you do for a simple ETH transfer.",
+        "zh": "部署智能合约在技术上是一笔交易，所以和普通的 ETH 转账一样需要支付 gas。",
+        "context": "ethereum.org 智能合约开发文档。"
+      }
+    ],
+    "related_terms": [
+      "contract account",
+      "externally owned account",
+      "gas",
+      "ether",
+      "script"
+    ],
+    "tags": [
+      "ethereum",
+      "smart-contract",
+      "whitepaper"
+    ]
+  },
+  {
+    "id": "ether",
+    "order": 47,
+    "term": "ether",
+    "term_zh": "以太币",
+    "aliases": [
+      "ETH"
+    ],
+    "part_of_speech": "noun",
+    "category": "Currency / 货币",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "Ether (ETH) is the built-in native currency of the Ethereum network. The Ethereum whitepaper calls it the main internal crypto-fuel of Ethereum: it is used to pay transaction fees (gas) and also serves as a primary liquidity layer for exchanging digital assets. Its smallest unit is the wei, and 1 ether equals 10^18 wei.",
+    "definition_zh": "以太币（ETH）是以太坊网络内置的原生货币。以太坊白皮书称它为以太坊主要的内部“加密燃料”：用于支付交易费（gas），同时作为数字资产之间交换的主要流动性层。它的最小单位是 wei，1 ether 等于 10^18 wei。",
+    "notes_zh": "“以太坊”（Ethereum）是网络/平台，“以太币”（ether, ETH）是其中的货币，二者不要混用。gas 本身不是币，而是计算量单位，gas 费用才用 ETH（常以 gwei，即 10^9 wei 计价）支付。",
+    "citations": [
+      {
+        "title": "Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform",
+        "publisher": "Vitalik Buterin / ethereum.org",
+        "url": "https://ethereum.org/en/whitepaper/",
+        "accessed": "2026-11-09",
+        "note": "Ethereum Accounts 一节：Ether 是以太坊主要的内部加密燃料，用于支付交易费；Currency And Issuance 一节：以太坊内置货币 ether 兼具主要流动性层与支付交易费机制的双重作用，并预设面额 1 wei、10^12 szabo、10^15 finney、10^18 ether。"
+      },
+      {
+        "title": "What is ether (ETH)?",
+        "publisher": "ethereum.org",
+        "url": "https://ethereum.org/en/what-is-ether/",
+        "accessed": "2026-11-09",
+        "note": "页面开头：Ether (ETH) 是驱动以太坊网络的原生加密货币，用于支付交易费（gas）、通过质押保护网络，并可作为数字货币用于支付与投资。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "\"Ether\" is the main internal crypto-fuel of Ethereum, and is used to pay transaction fees.",
+        "zh": "“以太币”是以太坊主要的内部加密燃料，用于支付交易费。",
+        "context": "以太坊白皮书 Ethereum Accounts 一节。"
+      },
+      {
+        "en": "Gas prices are usually quoted in gwei, a denomination of ETH equal to one-billionth of an ether.",
+        "zh": "gas 价格通常以 gwei 报价，gwei 是 ETH 的一种面额，等于十亿分之一个 ether。",
+        "context": "ethereum.org Gas and fees 文档。"
+      }
+    ],
+    "related_terms": [
+      "gas",
+      "transaction fee",
+      "externally owned account",
+      "smart contract"
+    ],
+    "tags": [
+      "ethereum",
+      "currency",
+      "whitepaper"
+    ]
+  },
+  {
+    "id": "externally-owned-account",
+    "order": 48,
+    "term": "externally owned account",
+    "term_zh": "外部账户",
+    "aliases": [
+      "EOA",
+      "externally-owned account"
+    ],
+    "part_of_speech": "noun phrase",
+    "category": "Keys & Addresses / 密钥与地址",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "An externally owned account (EOA) is an Ethereum account controlled by a private key rather than by code. It has no contract code; its holder sends messages from it by creating and signing a transaction, so every Ethereum transaction originates from an EOA. Like every Ethereum account, it has a 20-byte address, a nonce and an ether balance.",
+    "definition_zh": "外部账户（EOA）是由私钥而非代码控制的以太坊账户。它没有合约代码；持有者通过创建并签名交易从该账户发送消息，因此每一笔以太坊交易都源自外部账户。与所有以太坊账户一样，它具有 20 字节的地址、nonce 和以太币余额。",
+    "notes_zh": "以太坊采用账户模型，与比特币的 UTXO 模型不同。“外部”指控制者在以太坊执行环境之外（持有私钥的人或程序）。EOA 账户中的 nonce 是交易计数器，用来保证每笔交易只被处理一次，不同于工作量证明中的区块 nonce。",
+    "citations": [
+      {
+        "title": "Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform",
+        "publisher": "Vitalik Buterin / ethereum.org",
+        "url": "https://ethereum.org/en/whitepaper/",
+        "accessed": "2026-11-09",
+        "note": "Ethereum Accounts 一节：账户有 20 字节地址，包含 nonce、ether 余额、合约代码（若有）和存储四个字段；账户分两类：由私钥控制的外部账户和由合约代码控制的合约账户；外部账户没有代码，可以通过创建并签名交易从外部账户发送消息。Messages and Transactions 一节：交易是存储由外部账户发出的消息的已签名数据包。"
+      },
+      {
+        "title": "Ethereum accounts",
+        "publisher": "ethereum.org",
+        "url": "https://ethereum.org/en/developers/docs/accounts/",
+        "accessed": "2026-11-09",
+        "note": "Account types / Key differences：外部账户由持有私钥的任何人控制，创建免费，可以发起交易，由一对公私钥控制账户活动。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "An externally owned account has no code, and one can send messages from an externally owned account by creating and signing a transaction.",
+        "zh": "外部账户没有代码，人们可以通过创建并签名一笔交易，从外部账户发送消息。",
+        "context": "以太坊白皮书 Ethereum Accounts 一节。"
+      },
+      {
+        "en": "Only an externally owned account can initiate a transaction; a contract account can only send messages in response to one.",
+        "zh": "只有外部账户能够发起交易；合约账户只能在收到交易后作出响应、发送消息。",
+        "context": "根据 ethereum.org Ethereum accounts 文档 Key differences 部分。"
+      }
+    ],
+    "related_terms": [
+      "contract account",
+      "private key",
+      "address",
+      "nonce",
+      "transaction"
+    ],
+    "tags": [
+      "ethereum",
+      "account",
+      "whitepaper"
+    ]
+  },
+  {
+    "id": "contract-account",
+    "order": 49,
+    "term": "contract account",
+    "term_zh": "合约账户",
+    "aliases": [
+      "contract accounts"
+    ],
+    "part_of_speech": "noun phrase",
+    "category": "Smart Contracts / 智能合约",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "A contract account is an Ethereum account controlled by its contract code instead of a private key. Every time it receives a transaction or message, its code activates and can read and write its persistent storage, send messages to other accounts or create new contracts; it cannot initiate a transaction on its own. A deployed smart contract exists on Ethereum as a contract account.",
+    "definition_zh": "合约账户是由其合约代码而非私钥控制的以太坊账户。每当它收到交易或消息时，其代码就会被激活，可以读写自己的持久存储、向其他账户发送消息或创建新合约；它不能自行发起交易。已部署的智能合约在以太坊上就以合约账户的形式存在。",
+    "notes_zh": "合约账户没有私钥，任何人（包括部署者）都不能“签名”替它花钱，资金只能按代码逻辑转出。合约账户只能被动响应：它的每次执行最终都追溯到某个外部账户发起的交易。",
+    "citations": [
+      {
+        "title": "Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform",
+        "publisher": "Vitalik Buterin / ethereum.org",
+        "url": "https://ethereum.org/en/whitepaper/",
+        "accessed": "2026-11-09",
+        "note": "Ethereum Accounts 一节：合约账户由其合约代码控制；合约账户每次收到消息时代码被激活，可以读写内部存储、发送其他消息或依次创建合约。Messages 一节：合约执行 CALL 操作码时产生消息，使接收账户运行其代码。"
+      },
+      {
+        "title": "Ethereum accounts",
+        "publisher": "ethereum.org",
+        "url": "https://ethereum.org/en/developers/docs/accounts/",
+        "accessed": "2026-11-09",
+        "note": "Account types / Key differences：合约账户是部署到网络上的由代码控制的智能合约；创建合约因占用网络存储而有成本；只能在收到交易时发送消息；没有私钥，由智能合约代码逻辑控制。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "In a contract account, every time the contract account receives a message its code activates, allowing it to read and write to internal storage.",
+        "zh": "对于合约账户，每当它收到一条消息，其代码就会被激活，使它可以读写内部存储。",
+        "context": "以太坊白皮书 Ethereum Accounts 一节。"
+      },
+      {
+        "en": "Contract accounts don't have private keys; instead, they are controlled by the logic of the smart contract code.",
+        "zh": "合约账户没有私钥，而是由智能合约代码的逻辑控制。",
+        "context": "ethereum.org Ethereum accounts 文档。"
+      }
+    ],
+    "related_terms": [
+      "smart contract",
+      "externally owned account",
+      "gas",
+      "ether"
+    ],
+    "tags": [
+      "ethereum",
+      "account",
+      "smart-contract",
+      "whitepaper"
+    ]
+  },
+  {
+    "id": "gas",
+    "order": 50,
+    "term": "gas",
+    "term_zh": "燃料（gas）",
+    "aliases": [
+      "gas unit"
+    ],
+    "part_of_speech": "noun",
+    "category": "Smart Contracts / 智能合约",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "Gas is the unit that measures the computational effort required to execute operations on Ethereum. Each operation costs a fixed amount of gas (more for computationally expensive or storage-increasing operations, plus a fee per byte of transaction data), and the sender pays the gas consumed multiplied by a price per unit of gas in ether. Because a transaction sets a maximum amount of gas it may use, execution halts when gas runs out, which stops infinite loops and makes attackers pay in proportion to the resources they consume.",
+    "definition_zh": "gas 是衡量在以太坊上执行操作所需计算量的单位。每种操作消耗固定数量的 gas（计算开销大或会增加存储的数据的操作更多，交易数据每字节另计费），发送者按消耗的 gas 乘以每单位 gas 的价格用以太币付费。由于交易会设定可用 gas 的上限，gas 耗尽时执行就会停止，从而阻止无限循环，并让攻击者按其消耗的资源成比例付费。",
+    "notes_zh": "gas 是计算量单位，不是货币；“gas 费”才是用 ETH 支付的金额（gas 用量 × 单价）。执行因 gas 耗尽失败时，状态变化会回滚，但已消耗的 gas 费不退。白皮书中的 STARTGAS / GASPRICE 对应今天的 gas limit 与 gas price；EIP-1559 之后单价又分为 base fee 与 priority fee。",
+    "citations": [
+      {
+        "title": "Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform",
+        "publisher": "Vitalik Buterin / ethereum.org",
+        "url": "https://ethereum.org/en/whitepaper/",
+        "accessed": "2026-11-09",
+        "note": "Messages and Transactions 一节：计算的基本单位是“gas”，通常每个计算步骤花费 1 gas，开销更大或增加状态存储的操作更多，交易数据每字节收 5 gas；交易须用 STARTGAS 限定计算步数，以防意外或恶意的无限循环，费用体系要求攻击者为消耗的计算、带宽和存储按比例付费。State Transition Function 一节：gas 耗尽时回滚除费用外的所有状态变化。"
+      },
+      {
+        "title": "Gas and fees",
+        "publisher": "ethereum.org",
+        "url": "https://ethereum.org/en/developers/docs/gas/",
+        "accessed": "2026-11-09",
+        "note": "What is gas?：gas 指衡量在以太坊网络上执行特定操作所需计算量的单位；gas 费为所用 gas 数量乘以每单位 gas 的价格，无论交易成功或失败都需支付，并以 ETH 支付。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "The fundamental unit of computation is \"gas\"; usually, a computational step costs 1 gas, but some operations cost higher amounts of gas.",
+        "zh": "计算的基本单位是“gas”；通常一个计算步骤消耗 1 gas，但有些操作消耗更多 gas。",
+        "context": "以太坊白皮书 Messages and Transactions 一节。"
+      },
+      {
+        "en": "If the code execution runs out of gas, all state changes are reverted except the payment of the fees.",
+        "zh": "如果代码执行耗尽了 gas，除已支付的费用外，所有状态变化都会被回滚。",
+        "context": "根据以太坊白皮书 Ethereum State Transition Function 一节。"
+      }
+    ],
+    "related_terms": [
+      "ether",
+      "transaction fee",
+      "smart contract",
+      "contract account"
+    ],
+    "tags": [
+      "ethereum",
+      "fees",
+      "whitepaper"
+    ]
   }
 ];

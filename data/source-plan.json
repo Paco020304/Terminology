@@ -9,7 +9,7 @@
   "phases": [
     {
       "phase": "bitcoin-whitepaper",
-      "status": "in_progress",
+      "status": "done",
       "description": "Remaining core concepts of the Bitcoin whitepaper.",
       "sources": [
         {
@@ -19,7 +19,7 @@
           "year": 2008,
           "venue": "Whitepaper",
           "url": "https://bitcoin.org/bitcoin.pdf",
-          "status": "in_progress",
+          "status": "done",
           "candidate_terms": [
             "block header",
             "merkle root",
@@ -91,7 +91,7 @@
     },
     {
       "phase": "classic-milestones",
-      "status": "pending",
+      "status": "in_progress",
       "description": "Widely recognized milestone works that opened new directions. Ethereum whitepaper first (user priority), then chronological to the present. Append newly recognized milestones in chronological position before the phase is done.",
       "sources": [
         {
@@ -101,7 +101,7 @@
           "year": 2013,
           "venue": "Whitepaper",
           "url": "https://ethereum.org/en/whitepaper/",
-          "status": "pending",
+          "status": "in_progress",
           "candidate_terms": [
             "smart contract",
             "Ethereum Virtual Machine (EVM)",
@@ -118,7 +118,13 @@
             "Merkle Patricia trie",
             "uncle block"
           ],
-          "terms_added": []
+          "terms_added": [
+            "smart-contract",
+            "ether",
+            "externally-owned-account",
+            "contract-account",
+            "gas"
+          ]
         },
         {
           "id": "ppcoin",
