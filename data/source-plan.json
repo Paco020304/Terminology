@@ -123,7 +123,12 @@
             "ether",
             "externally-owned-account",
             "contract-account",
-            "gas"
+            "gas",
+            "ethereum-virtual-machine",
+            "state-transition-function",
+            "turing-completeness",
+            "gas-limit",
+            "decentralized-autonomous-organization"
           ]
         },
         {

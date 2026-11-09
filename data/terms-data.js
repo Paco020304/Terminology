@@ -2735,5 +2735,289 @@ window.TERMINOLOGY_TERMS = [
       "fees",
       "whitepaper"
     ]
+  },
+  {
+    "id": "ethereum-virtual-machine",
+    "order": 51,
+    "term": "Ethereum Virtual Machine",
+    "term_zh": "以太坊虚拟机",
+    "aliases": [
+      "EVM"
+    ],
+    "part_of_speech": "noun phrase",
+    "category": "Smart Contracts / 智能合约",
+    "level": "intermediate",
+    "status": "draft",
+    "definition_en": "The Ethereum Virtual Machine (EVM) is the execution environment in which Ethereum contract code runs. Contract code is written in a low-level, stack-based bytecode (\"EVM code\") in which each byte represents an operation; execution repeatedly carries out the operation at the program counter until the code ends or an error, STOP or RETURN is reached. Operations can use three kinds of space—a stack, a memory that resets after the computation, and the contract's long-term storage—and every operation consumes gas. Every Ethereum node runs the EVM, so the same code produces the same result across the network.",
+    "definition_zh": "以太坊虚拟机（EVM）是以太坊合约代码运行的执行环境。合约代码用一种低级、基于栈的字节码（“EVM 代码”）编写，每个字节代表一个操作；执行时反复执行程序计数器所指的操作，直到代码结束或遇到错误、STOP 或 RETURN 指令。操作可使用三种空间——栈、计算结束后即重置的内存，以及合约的长期存储——并且每个操作都消耗 gas。每个以太坊节点都运行 EVM，因此同样的代码在全网得到相同的结果。",
+    "notes_zh": "EVM 是协议规定的“虚拟”执行规范，不是某台具体的服务器；每个节点各自执行同一份字节码并核对结果。开发者通常用 Solidity 等高级语言编写合约，再编译成 EVM 字节码。“EVM 兼容”指其他链实现了相同的执行语义，可直接部署同样的字节码。",
+    "citations": [
+      {
+        "title": "Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform",
+        "publisher": "Vitalik Buterin / ethereum.org",
+        "url": "https://ethereum.org/en/whitepaper/",
+        "accessed": "2026-11-10",
+        "note": "Code Execution 一节：以太坊合约代码用低级、基于栈的字节码语言编写，称为“以太坊虚拟机代码”或“EVM 代码”；代码由一系列字节组成，每个字节代表一个操作；执行反复进行当前程序计数器处的操作，直到代码结束或遇到错误、STOP 或 RETURN；操作可访问栈、内存和长期存储三种空间，内存在计算结束后重置；EVM 运行时的完整计算状态可由元组 (block_state, transaction, message, code, memory, stack, pc, gas) 定义。"
+      },
+      {
+        "title": "Ethereum Virtual Machine (EVM)",
+        "publisher": "ethereum.org",
+        "url": "https://ethereum.org/en/developers/docs/evm/",
+        "accessed": "2026-11-10",
+        "note": "页首定义：EVM 是在所有以太坊节点上一致且安全地执行代码的去中心化虚拟环境；节点运行 EVM 来执行智能合约，并用 gas 衡量操作所需的计算量。EVM instructions 一节：EVM 作为深度 1024 的栈机执行，每项为 256 位字。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "The code in Ethereum contracts is written in a low-level, stack-based bytecode language, referred to as \"Ethereum virtual machine code\" or \"EVM code\".",
+        "zh": "以太坊合约中的代码用一种低级、基于栈的字节码语言编写，称为“以太坊虚拟机代码”或“EVM 代码”。",
+        "context": "以太坊白皮书 Code Execution 一节。"
+      },
+      {
+        "en": "Nodes run the EVM to execute smart contracts, using gas to measure the computational effort required for operations.",
+        "zh": "节点运行 EVM 来执行智能合约，并用 gas 衡量各项操作所需的计算量。",
+        "context": "ethereum.org Ethereum Virtual Machine (EVM) 文档。"
+      }
+    ],
+    "related_terms": [
+      "smart contract",
+      "gas",
+      "contract account",
+      "Turing completeness",
+      "state transition function"
+    ],
+    "tags": [
+      "ethereum",
+      "evm",
+      "execution",
+      "whitepaper"
+    ]
+  },
+  {
+    "id": "state-transition-function",
+    "order": 52,
+    "term": "state transition function",
+    "term_zh": "状态转换函数",
+    "aliases": [
+      "APPLY function"
+    ],
+    "part_of_speech": "noun phrase",
+    "category": "Transactions / 交易",
+    "level": "intermediate",
+    "status": "draft",
+    "definition_en": "A state transition function is the rule that takes the current state of a ledger and a transaction and outputs either the new state or an error, written APPLY(S, TX) -> S' or ERROR. The Ethereum whitepaper describes Bitcoin's ledger as a state transition system whose state is the set of UTXOs; in Ethereum the state is the set of all accounts, and the function checks the transaction's validity, charges the fee, transfers value and runs any contract code, reverting all changes except the fee payment if the sender lacks funds or execution runs out of gas.",
+    "definition_zh": "状态转换函数是一条规则：输入账本的当前状态和一笔交易，输出新的状态或一个错误，记作 APPLY(S, TX) -> S' 或 ERROR。以太坊白皮书把比特币账本描述为一个状态转换系统，其状态是全部 UTXO 的集合；在以太坊中，状态是所有账户的集合，该函数会检查交易是否有效、扣除费用、转移价值并运行合约代码；若发送者余额不足或执行耗尽 gas，则回滚除费用支付以外的所有变化。",
+    "notes_zh": "区块链共识要达成一致的其实是“按什么顺序执行哪些交易”；只要状态转换函数是确定性的，所有诚实节点从同一初始状态出发就会算出同一个新状态。白皮书中区块验证就是依次对区块内每笔交易调用 APPLY。“智能合约可以编码任意状态转换函数”是以太坊相对比特币脚本的核心扩展。",
+    "citations": [
+      {
+        "title": "Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform",
+        "publisher": "Vitalik Buterin / ethereum.org",
+        "url": "https://ethereum.org/en/whitepaper/",
+        "accessed": "2026-11-10",
+        "note": "Bitcoin As A State Transition System 一节：加密货币账本可视为状态转换系统，“状态转换函数”接收一个状态和一笔交易并输出新状态，可形式化定义为 APPLY(S,TX) -> S' or ERROR；比特币的状态是所有未花费交易输出（UTXO）。Ethereum State Transition Function 一节：给出以太坊 APPLY(S,TX) -> S' 的步骤，包括校验签名与 nonce、按 STARTGAS * GASPRICE 扣费、转账、运行合约代码，余额不足或 gas 耗尽时回滚除费用外的所有状态变化。"
+      },
+      {
+        "title": "Ethereum Virtual Machine (EVM)",
+        "publisher": "ethereum.org",
+        "url": "https://ethereum.org/en/developers/docs/evm/",
+        "accessed": "2026-11-10",
+        "note": "The Ethereum state transition function 一节：EVM 像数学函数一样，给定输入产生确定性输出；以太坊状态转换函数 Y(S, T) = S' 由旧的有效状态 S 和一组新的有效交易 T 产生新的有效状态 S'。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "The ledger of a cryptocurrency such as Bitcoin can be thought of as a state transition system, where there is a \"state\" and a \"state transition function\" that takes a state and a transaction and outputs a new state.",
+        "zh": "比特币这类加密货币的账本可以看作一个状态转换系统：有一个“状态”，以及一个接收状态和交易并输出新状态的“状态转换函数”。",
+        "context": "根据以太坊白皮书 Bitcoin As A State Transition System 一节。"
+      },
+      {
+        "en": "To validate a block, a node applies the state transition function to each transaction in order, starting from the state at the end of the previous block.",
+        "zh": "验证区块时，节点从上一个区块结束时的状态出发，依次对每笔交易应用状态转换函数。",
+        "context": "根据以太坊白皮书 Blockchain and Mining 一节的区块验证算法。"
+      }
+    ],
+    "related_terms": [
+      "transaction",
+      "utxo",
+      "Ethereum Virtual Machine",
+      "gas",
+      "consensus"
+    ],
+    "tags": [
+      "ethereum",
+      "state",
+      "formal-model",
+      "whitepaper"
+    ]
+  },
+  {
+    "id": "turing-completeness",
+    "order": 53,
+    "term": "Turing completeness",
+    "term_zh": "图灵完备性",
+    "aliases": [
+      "Turing-complete",
+      "Turing complete"
+    ],
+    "part_of_speech": "noun",
+    "category": "Smart Contracts / 智能合约",
+    "level": "intermediate",
+    "status": "draft",
+    "definition_en": "Turing completeness is the property of a system of data-manipulation rules, such as an instruction set or programming language, that can simulate any Turing machine and therefore express any computation, including infinite loops. The Ethereum whitepaper states that the EVM is Turing-complete: JUMP and JUMPI instructions and calls between contracts allow arbitrary looping. Because of the halting problem one cannot tell in general whether a program will halt, so Ethereum requires each transaction to set a maximum number of computational steps (gas); if execution exceeds it, the computation is reverted but fees are still paid.",
+    "definition_zh": "图灵完备性是指一套数据操作规则（如指令集或编程语言）能够模拟任何图灵机，因而能表达任意计算（包括无限循环）的性质。以太坊白皮书指出 EVM 是图灵完备的：JUMP 和 JUMPI 指令以及合约之间的相互调用都允许任意循环。由于停机问题，一般无法判断一个程序是否会停止，因此以太坊要求每笔交易设定可执行计算步数的上限（gas）；执行超出上限时计算被回滚，但费用照付。",
+    "notes_zh": "图灵完备描述的是“能表达什么”，不代表链上可以无限计算——实际计算量始终受 gas 上限约束。比特币脚本刻意不支持循环，因此不是图灵完备的；白皮书也讨论了图灵不完备方案，并指出它并不能干净地解决问题（合约可以层层调用放大计算量）。",
+    "citations": [
+      {
+        "title": "Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform",
+        "publisher": "Vitalik Buterin / ethereum.org",
+        "url": "https://ethereum.org/en/whitepaper/",
+        "accessed": "2026-11-10",
+        "note": "Computation And Turing-Completeness 一节：EVM 是图灵完备的，EVM 代码可以编码任何可设想的计算，包括无限循环；通过 JUMP/JUMPI 指令和合约递归调用实现循环；由于停机问题无法一般地判断程序是否会停止，解决方案是要求交易设定最大计算步数，超出则计算回滚但费用照付；并讨论了图灵不完备的替代方案及其不足。Scripting 一节：比特币脚本缺乏图灵完备性，不支持循环。"
+      },
+      {
+        "title": "Ethereum glossary",
+        "publisher": "ethereum.org",
+        "url": "https://ethereum.org/en/glossary/",
+        "accessed": "2026-11-10",
+        "note": "Turing complete 词条：以英国数学家、计算机科学家艾伦·图灵命名；一套数据操作规则（如计算机指令集、编程语言或元胞自动机）若可用于模拟任何图灵机，就称为“图灵完备”或“计算通用”。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "An important note is that the Ethereum virtual machine is Turing-complete; this means that EVM code can encode any computation that can be conceivably carried out, including infinite loops.",
+        "zh": "需要特别指出的是，以太坊虚拟机是图灵完备的；这意味着 EVM 代码可以编码任何可设想的计算，包括无限循环。",
+        "context": "以太坊白皮书 Computation And Turing-Completeness 一节。"
+      },
+      {
+        "en": "Bitcoin Script deliberately lacks loops, so it is not Turing-complete, whereas Ethereum bounds its Turing-complete code with gas.",
+        "zh": "比特币脚本刻意不支持循环，因此不是图灵完备的；而以太坊用 gas 为其图灵完备的代码设定计算上限。",
+        "context": "对比以太坊白皮书 Scripting 一节与 Computation And Turing-Completeness 一节。"
+      }
+    ],
+    "related_terms": [
+      "Ethereum Virtual Machine",
+      "gas",
+      "gas limit",
+      "script",
+      "smart contract"
+    ],
+    "tags": [
+      "ethereum",
+      "computation",
+      "evm",
+      "whitepaper"
+    ]
+  },
+  {
+    "id": "gas-limit",
+    "order": 54,
+    "term": "gas limit",
+    "term_zh": "gas 上限",
+    "aliases": [
+      "STARTGAS"
+    ],
+    "part_of_speech": "noun phrase",
+    "category": "Transactions / 交易",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "The gas limit of a transaction is the maximum amount of gas its sender allows its execution to consume; the Ethereum whitepaper calls this field STARTGAS. At the start of execution GAS is set to STARTGAS and each operation deducts from it; if execution runs out of gas, all state changes except the fee payment are reverted, and otherwise the fee for the unused gas is refunded to the sender. The limit protects the network against accidental or hostile infinite loops.",
+    "definition_zh": "交易的 gas 上限是发送者允许该交易执行时最多消耗的 gas 数量；以太坊白皮书中称这一字段为 STARTGAS。执行开始时 GAS 被设为 STARTGAS，每个操作从中扣减；若执行耗尽 gas，则回滚除费用支付以外的所有状态变化，否则未用完的 gas 对应的费用退还给发送者。这一上限保护网络免受意外或恶意的无限循环。",
+    "notes_zh": "交易的 gas 上限（由用户设置）不同于区块 gas 上限（白皮书中的 GASLIMIT，限制一个区块内所有交易消耗的 gas 总和）。上限设得高不会多付钱，未用部分会退还；但设得过低会导致交易失败，执行中耗尽时已消耗的 gas 不退。普通 ETH 转账需要 21,000 gas。",
+    "citations": [
+      {
+        "title": "Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform",
+        "publisher": "Vitalik Buterin / ethereum.org",
+        "url": "https://ethereum.org/en/whitepaper/",
+        "accessed": "2026-11-10",
+        "note": "Messages and Transactions 一节：交易包含 STARTGAS 值，表示交易执行允许的最大计算步数；STARTGAS 与 GASPRICE 是以太坊防拒绝服务模型的关键，每笔交易都必须限定可用的计算步数以防止意外或恶意的无限循环。Ethereum State Transition Function 一节：初始化 GAS = STARTGAS；gas 耗尽时回滚除费用外的所有状态变化，否则退还剩余 gas 的费用。Blockchain and Mining 一节：区块内累计消耗的 gas 超过 GASLIMIT 时区块无效。"
+      },
+      {
+        "title": "Gas and fees",
+        "publisher": "ethereum.org",
+        "url": "https://ethereum.org/en/developers/docs/gas/",
+        "accessed": "2026-11-10",
+        "note": "What is gas limit? 一节：gas limit 指你愿意在一笔交易上消耗的最大 gas 量；标准 ETH 转账需要 21,000 gas；未消耗的部分会退还；设置过低会使交易在验证阶段失败；执行中耗尽 gas 时 EVM 回滚所有更改但所提供的 gas 仍被消耗。Block size 一节：每个区块的目标大小为当前区块 gas 上限的一半。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "A STARTGAS value represents the maximum number of computational steps the transaction execution is allowed to take.",
+        "zh": "STARTGAS 值表示交易执行允许进行的最大计算步数。",
+        "context": "根据以太坊白皮书 Messages and Transactions 一节。"
+      },
+      {
+        "en": "If you put a gas limit of 50,000 for a simple ETH transfer, the EVM would consume 21,000, and you would get back the remaining 29,000.",
+        "zh": "如果你为一笔普通 ETH 转账设置 50,000 的 gas 上限，EVM 会消耗 21,000，剩余的 29,000 会退还给你。",
+        "context": "ethereum.org Gas and fees 文档 What is gas limit? 一节。"
+      }
+    ],
+    "related_terms": [
+      "gas",
+      "transaction fee",
+      "Ethereum Virtual Machine",
+      "Turing completeness"
+    ],
+    "tags": [
+      "ethereum",
+      "fees",
+      "gas",
+      "whitepaper"
+    ]
+  },
+  {
+    "id": "decentralized-autonomous-organization",
+    "order": 55,
+    "term": "decentralized autonomous organization",
+    "term_zh": "去中心化自治组织",
+    "aliases": [
+      "DAO",
+      "DAOs"
+    ],
+    "part_of_speech": "noun phrase",
+    "category": "Governance / 治理",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "A decentralized autonomous organization (DAO) is a virtual entity whose rules and funds are controlled by smart contract code on a blockchain: a set of members or shareholders, for example with a two-thirds majority, has the right to spend the entity's funds and modify its code, and the members collectively decide how funds are allocated. The Ethereum whitepaper describes this as replicating the legal trappings of a traditional company or nonprofit using only cryptographic blockchain technology for enforcement.",
+    "definition_zh": "去中心化自治组织（DAO）是一种由区块链上的智能合约代码控制其规则和资金的虚拟实体：一组成员或股东（例如以三分之二多数）有权支配该实体的资金并修改其代码，成员共同决定资金如何分配。以太坊白皮书将其描述为：仅用密码学区块链技术来执行，复刻传统公司或非营利组织的法律架构。",
+    "notes_zh": "DAO 是一类组织形态的统称；2016 年遭黑客攻击、导致以太坊硬分叉出 Ethereum Classic 的 “The DAO” 只是其中一个具体项目。“自治”指规则由代码自动执行，并不等于没有人参与——提案和投票仍由成员完成。多数 DAO 的法律地位在各司法辖区仍不明确。",
+    "citations": [
+      {
+        "title": "Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform",
+        "publisher": "Vitalik Buterin / ethereum.org",
+        "url": "https://ethereum.org/en/whitepaper/",
+        "accessed": "2026-11-10",
+        "note": "Decentralized Autonomous Organizations 一节：“去中心化自治组织”的一般概念是一个虚拟实体，拥有一组成员或股东，他们（例如以 67% 多数）有权支配该实体的资金并修改其代码；成员共同决定组织如何分配资金；这本质上仅用密码学区块链技术来执行，复刻了传统公司或非营利组织的法律架构；最简单的设计是在三分之二成员同意时修改的自修改代码。"
+      },
+      {
+        "title": "Decentralized autonomous organizations (DAOs)",
+        "publisher": "ethereum.org",
+        "url": "https://ethereum.org/en/dao/",
+        "accessed": "2026-11-10",
+        "note": "What is a DAO? 一节：DAO 是为共同使命而工作的集体所有的组织；基于区块链的规则写在代码中，定义组织如何运作和资金如何使用；内置金库未经集体批准任何人无权动用；决策通过提案和投票进行。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "The members would collectively decide on how the organization should allocate its funds.",
+        "zh": "成员将共同决定组织应如何分配其资金。",
+        "context": "以太坊白皮书 Decentralized Autonomous Organizations 一节。"
+      },
+      {
+        "en": "A DAO's treasury can only be spent after members approve a proposal by voting, as enforced by its smart contracts.",
+        "zh": "DAO 的金库只有在成员投票通过提案后才能动用，这一规则由其智能合约强制执行。",
+        "context": "根据 ethereum.org DAO 页面 What is a DAO? 一节。"
+      }
+    ],
+    "related_terms": [
+      "smart contract",
+      "token",
+      "contract account"
+    ],
+    "tags": [
+      "ethereum",
+      "governance",
+      "dao",
+      "whitepaper"
+    ]
   }
 ];
