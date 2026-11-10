@@ -101,7 +101,7 @@
           "year": 2013,
           "venue": "Whitepaper",
           "url": "https://ethereum.org/en/whitepaper/",
-          "status": "in_progress",
+          "status": "done",
           "candidate_terms": [
             "smart contract",
             "Ethereum Virtual Machine (EVM)",
@@ -128,7 +128,12 @@
             "state-transition-function",
             "turing-completeness",
             "gas-limit",
-            "decentralized-autonomous-organization"
+            "decentralized-autonomous-organization",
+            "token",
+            "message",
+            "merkle-patricia-trie",
+            "uncle-block",
+            "wei"
           ]
         },
         {

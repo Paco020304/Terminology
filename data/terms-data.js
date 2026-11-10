@@ -3019,5 +3019,304 @@ window.TERMINOLOGY_TERMS = [
       "dao",
       "whitepaper"
     ]
+  },
+  {
+    "id": "token",
+    "order": 56,
+    "term": "token",
+    "term_zh": "代币",
+    "aliases": [
+      "tokens",
+      "token system"
+    ],
+    "part_of_speech": "noun",
+    "category": "Smart Contracts / 智能合约",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "On Ethereum, a token is a unit of value whose balances are recorded and transferred by a smart contract rather than by the base protocol. The Ethereum whitepaper explains that a currency or token system is fundamentally a database with one operation: subtract X units from A and give X units to B, provided that A had at least X units before the transaction and the transaction is approved by A; implementing a token system only requires writing this logic into a contract. Tokens can represent sub-currencies, assets such as USD or gold, company shares, smart property, coupons, or reward points.",
+    "definition_zh": "在以太坊上，代币是一种由智能合约（而非底层协议本身）记录余额并执行转移的价值单位。以太坊白皮书指出，货币或代币系统本质上是一个只有一种操作的数据库：从 A 处扣减 X 个单位并加给 B，前提是 (i) A 在交易前至少拥有 X 个单位，且 (ii) 该交易得到 A 的批准；实现一个代币系统只需把这段逻辑写进一个合约。代币可以代表子货币、美元或黄金等资产、公司股份、智能财产、优惠券或积分等。",
+    "notes_zh": "代币不同于 ether：ether 是协议原生资产，余额直接记在账户状态中；代币余额保存在代币合约的存储里，“转代币”实际上是调用该合约，手续费（gas）仍需用 ether 支付。中文也常译作“通证”。ERC-20 是可互换代币的接口标准，属于后续收录的来源。",
+    "citations": [
+      {
+        "title": "Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform",
+        "publisher": "Vitalik Buterin / ethereum.org",
+        "url": "https://ethereum.org/en/whitepaper/",
+        "accessed": "2026-11-11",
+        "note": "Token Systems 一节：链上代币系统可用于代表美元或黄金等资产的子货币、公司股票、代表智能财产的单个代币、不可伪造的优惠券乃至积分系统；货币或代币系统本质上是一个只有一种操作的数据库——从 A 扣减 X 单位并给 B，前提是 A 事先至少有 X 单位且交易经 A 批准；实现代币系统只需把这段逻辑写进合约。"
+      },
+      {
+        "title": "ERC-20 Token Standard",
+        "publisher": "ethereum.org",
+        "url": "https://ethereum.org/en/developers/docs/standards/tokens/erc-20/",
+        "accessed": "2026-11-11",
+        "note": "What is a Token? 一节：代币在以太坊中几乎可以代表任何东西，如在线平台的声誉积分、游戏角色技能、公司股份等金融资产、美元等法币、一盎司黄金等；ERC-20 标准使代币应用能与其他产品和服务互操作。"
+      },
+      {
+        "title": "Ethereum glossary",
+        "publisher": "ethereum.org",
+        "url": "https://ethereum.org/en/glossary/",
+        "accessed": "2026-11-11",
+        "note": "Token 词条：在以太坊区块链上由智能合约定义的可交易虚拟物品。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "All that it takes to implement a token system is to implement this logic into a contract.",
+        "zh": "实现一个代币系统所需要的，只是把这段逻辑写进一个合约。",
+        "context": "以太坊白皮书 Token Systems 一节。"
+      },
+      {
+        "en": "When you send a stablecoin to a friend, your wallet calls the token contract to lower your balance and raise theirs, while the gas fee is still paid in ether.",
+        "zh": "当你给朋友转一笔稳定币时，钱包会调用该代币合约，减少你的余额并增加对方的余额，而 gas 费用仍以 ether 支付。",
+        "context": "日常转账场景。"
+      }
+    ],
+    "related_terms": [
+      "smart contract",
+      "ether",
+      "contract account",
+      "state transition function"
+    ],
+    "tags": [
+      "ethereum",
+      "token",
+      "smart-contract",
+      "whitepaper"
+    ]
+  },
+  {
+    "id": "message",
+    "order": 57,
+    "term": "message",
+    "term_zh": "消息",
+    "aliases": [
+      "internal transaction",
+      "internal transactions"
+    ],
+    "part_of_speech": "noun",
+    "category": "Transactions / 交易",
+    "level": "intermediate",
+    "status": "draft",
+    "definition_en": "In Ethereum, a message is a virtual object produced when a contract that is executing code runs the CALL opcode; it is never serialized and exists only in the Ethereum execution environment. A message contains the (implicit) sender, the recipient, the amount of ether to transfer, an optional data field and a STARTGAS value. A message is like a transaction except that it is produced by a contract rather than by an external actor, and, like a transaction, it causes the recipient account to run its code. If a message execution runs out of gas, that execution and all executions it triggered revert, but parent executions do not need to revert.",
+    "definition_zh": "在以太坊中，消息是正在执行代码的合约运行 CALL 操作码时产生的一种虚拟对象；它从不被序列化，只存在于以太坊执行环境之中。消息包含：（隐含的）发送者、接收者、随消息转移的 ether 数量、一个可选的数据字段，以及一个 STARTGAS 值。消息与交易类似，区别在于它由合约而非外部参与者产生；与交易一样，消息会使接收账户运行其代码。若某次消息执行耗尽 gas，则该次执行及其触发的所有执行都会回滚，但其上层（父）执行不必回滚。",
+    "notes_zh": "消息不是独立上链的交易：它不单独签名、没有自己的交易哈希，只是某笔交易执行过程中的合约间调用；区块浏览器通常把它显示为“内部交易”（internal transactions）。交易设定的 gas 上限覆盖它触发的全部消息执行，因此子调用耗尽 gas 不会让调用方损失超过其分配给子调用的 gas。",
+    "citations": [
+      {
+        "title": "Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform",
+        "publisher": "Vitalik Buterin / ethereum.org",
+        "url": "https://ethereum.org/en/whitepaper/",
+        "accessed": "2026-11-11",
+        "note": "Messages 一节：合约可以向其他合约发送“消息”；消息是从不被序列化、只存在于以太坊执行环境中的虚拟对象，包含隐含的发送者、接收者、转移的 ether 数量、可选数据字段和 STARTGAS 值；消息本质上像交易，只是由合约而非外部参与者产生，当执行中的合约运行 CALL 操作码时产生并执行消息。Ethereum State Transition Function 一节：消息执行耗尽 gas 时，该执行及其触发的所有执行回滚，但父执行不必回滚。"
+      },
+      {
+        "title": "Ethereum glossary",
+        "publisher": "ethereum.org",
+        "url": "https://ethereum.org/en/glossary/",
+        "accessed": "2026-11-11",
+        "note": "Message 词条：一种从不被序列化、只在 EVM 内部发送的内部交易。Message call 词条：从一个账户向另一个账户传递消息的行为；若目标账户关联有 EVM 代码，则以该对象的状态启动虚拟机并处理该消息。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "Essentially, a message is like a transaction, except it is produced by a contract and not an external actor.",
+        "zh": "本质上，消息就像一笔交易，只不过它由合约而非外部参与者产生。",
+        "context": "以太坊白皮书 Messages 一节。"
+      },
+      {
+        "en": "If an external actor A sends a transaction to B with 1000 gas, and B consumes 600 gas before sending a message to C, and the internal execution of C consumes 300 gas before returning, then B can spend another 100 gas before running out of gas.",
+        "zh": "如果外部参与者 A 向 B 发送一笔带 1000 gas 的交易，B 消耗 600 gas 后向 C 发送一条消息，C 的内部执行消耗 300 gas 后返回，那么 B 在耗尽 gas 之前还能再花费 100 gas。",
+        "context": "以太坊白皮书 Messages 一节中关于 gas 额度覆盖所有子执行的示例。"
+      }
+    ],
+    "related_terms": [
+      "transaction",
+      "contract account",
+      "gas limit",
+      "Ethereum Virtual Machine"
+    ],
+    "tags": [
+      "ethereum",
+      "evm",
+      "transactions",
+      "whitepaper"
+    ]
+  },
+  {
+    "id": "merkle-patricia-trie",
+    "order": 58,
+    "term": "Merkle Patricia trie",
+    "term_zh": "默克尔帕特里夏树",
+    "aliases": [
+      "Patricia tree",
+      "Merkle-Patricia trie",
+      "Patricia Merkle trie",
+      "MPT"
+    ],
+    "part_of_speech": "noun phrase",
+    "category": "Cryptography / 密码学",
+    "level": "advanced",
+    "status": "draft",
+    "definition_en": "The Merkle Patricia trie is the authenticated key-value data structure that Ethereum's execution layer uses to store its state and other data. It combines a Merkle tree, in which nodes are referenced by their hashes so that a single root hash commits to all of the data, with a Patricia (radix) trie, which allows nodes to be inserted and deleted, not just changed, efficiently. The Ethereum whitepaper notes that because only a small part of the tree changes after each block, adjacent states share most of their nodes through hash pointers, which makes storing the full state with every block practical. Each block header contains the roots of the state, transactions and receipts tries.",
+    "definition_zh": "默克尔帕特里夏树是以太坊执行层用来存储状态及其他数据的、可认证的键值数据结构。它把默克尔树（节点通过其哈希被引用，因此单个根哈希即可承诺全部数据）与帕特里夏树（基数树，允许高效地插入和删除节点，而不只是修改节点）结合起来。以太坊白皮书指出，由于每个区块之后只有树的一小部分发生变化，相邻状态可以通过哈希指针共享绝大部分节点，因此每个区块都保存完整状态是可行的。每个区块头都包含状态树、交易树和收据树的根。",
+    "notes_zh": "比特币区块头中的默克尔根只承诺交易列表，且其默克尔树不支持高效的插入删除；以太坊的 MPT 则承诺整个全局状态。全局状态树的键是 keccak256(以太坊地址)，值是 rlp 编码的账户 [nonce, balance, storageRoot, codeHash]，其中 storageRoot 又是该合约独立存储树的根。“trie”与“tree”在中文里都常译作“树”。ethereum.org 提到以太坊计划迁移到 Verkle 树。",
+    "citations": [
+      {
+        "title": "Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform",
+        "publisher": "Vitalik Buterin / ethereum.org",
+        "url": "https://ethereum.org/en/whitepaper/",
+        "accessed": "2026-11-11",
+        "note": "Blockchain and Mining 一节：状态以树结构存储，每个区块之后只有一小部分树需要改变，相邻区块间的大部分树相同，数据可存储一次并通过指针（子树哈希）引用两次；为此使用一种称为“Patricia tree”的特殊树，它对 Merkle 树概念做了修改，使节点不仅能被高效修改，还能被高效插入和删除。"
+      },
+      {
+        "title": "Merkle Patricia Trie",
+        "publisher": "ethereum.org",
+        "url": "https://ethereum.org/en/developers/docs/data-structures-and-encoding/patricia-merkle-trie/",
+        "accessed": "2026-11-11",
+        "note": "开篇：以太坊状态被编码为一种特殊的 Merkle 树；其数据结构是“modified Merkle-Patricia Trie”，借用了 PATRICIA 的特性；它是确定性且可密码学验证的，不可能构造出具有相同根哈希的两个不同状态。Tries in Ethereum 一节：执行层所有 merkle trie 均使用 MPT，区块头中有 stateRoot、transactionsRoot、receiptsRoot 三个根。State Trie 一节：路径为 keccak256(ethereumAddress)，值为 rlp(ethereumAccount)，账户为 [nonce, balance, storageRoot, codeHash]。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "A special kind of tree known as a \"Patricia tree\" is used to accomplish this, including a modification to the Merkle tree concept that allows for nodes to be inserted and deleted, and not just changed, efficiently.",
+        "zh": "为此使用了一种称为“Patricia 树”的特殊树，它对 Merkle 树的概念做了修改，使节点不仅能被高效修改，还能被高效地插入和删除。",
+        "context": "以太坊白皮书 Blockchain and Mining 一节。"
+      },
+      {
+        "en": "Every Ethereum block header carries three trie roots: stateRoot, transactionsRoot and receiptsRoot.",
+        "zh": "每个以太坊区块头都携带三个树根：stateRoot、transactionsRoot 和 receiptsRoot。",
+        "context": "根据 ethereum.org Merkle Patricia Trie 文档 Tries in Ethereum 一节。"
+      }
+    ],
+    "related_terms": [
+      "merkle tree",
+      "hash",
+      "block header",
+      "state transition function"
+    ],
+    "tags": [
+      "ethereum",
+      "data-structure",
+      "state",
+      "whitepaper"
+    ]
+  },
+  {
+    "id": "uncle-block",
+    "order": 59,
+    "term": "uncle block",
+    "term_zh": "叔块",
+    "aliases": [
+      "uncle",
+      "ommer",
+      "ommer block"
+    ],
+    "part_of_speech": "noun phrase",
+    "category": "Mining / 挖矿",
+    "level": "intermediate",
+    "status": "draft",
+    "definition_en": "An uncle block (also called an ommer) is a stale block, a valid block that lost the race to extend the chain, that a later block includes by reference and that receives a partial reward. In the simplified version of the GHOST protocol described in the Ethereum whitepaper, a block specifies one parent and zero or more uncles; an uncle included in block B must be a direct child of the k-th generation ancestor of B with 2 <= k <= 7, must not be an ancestor of B, must be a valid block header, and must not have been included before. Rewarding uncles, and the miner who includes them, reduces the security loss and the centralization bias that high stale rates cause on fast-block chains.",
+    "definition_zh": "叔块（也称 ommer）是一种陈旧块，即竞争延长主链失败但本身有效的区块，它被后续区块以引用方式纳入并获得部分奖励。在以太坊白皮书描述的简化版 GHOST 协议中，区块指定一个父块和零个或多个叔块；被区块 B 纳入的叔块必须是 B 的第 k 代祖先的直接子块（2 <= k <= 7），不能是 B 的祖先，必须是有效的区块头，且不能被重复纳入。奖励叔块及纳入叔块的矿工，可以减轻出块较快的链上高陈旧率造成的安全性损失和中心化偏向。",
+    "notes_zh": "叔块不在主链上，其中的交易不会被执行，交易费也不归叔块矿工。白皮书给出的分成是：B 的矿工每纳入一个叔块额外获得 3.125% 的 coinbase 奖励，叔块矿工获得标准奖励的 93.75%（同一节前文另写有 87.5%/12.5%，以具体规则为准）。“ommer”是后来采用的中性说法。以太坊 2022 年转为权益证明后，每个 slot 只选一个区块提议者，不再产生叔块。",
+    "citations": [
+      {
+        "title": "Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform",
+        "publisher": "Vitalik Buterin / ethereum.org",
+        "url": "https://ethereum.org/en/whitepaper/",
+        "accessed": "2026-11-11",
+        "note": "Modified GHOST Implementation 一节：GHOST 把陈旧的后代块（以太坊术语中的 “uncles”）计入哪条链拥有最多工作量的计算，以解决网络安全损失；并对陈旧块发放区块奖励以解决中心化偏向；区块必须指定一个父块和 0 个或多个叔块；被 B 纳入的叔块须为 B 第 k 代祖先（2 <= k <= 7）的直接子块、不能是 B 的祖先、须为有效区块头、不得重复纳入；每个叔块 U 使 B 的矿工额外获得 3.125% 的 coinbase 奖励，U 的矿工获得标准 coinbase 奖励的 93.75%。"
+      },
+      {
+        "title": "Ethereum glossary",
+        "publisher": "ethereum.org",
+        "url": "https://ethereum.org/en/glossary/",
+        "accessed": "2026-11-11",
+        "note": "Ommer (uncle) block 词条：工作量证明矿工找到有效区块时，另一矿工可能已发布了先被加到链尖的竞争区块；这个有效但陈旧的区块可被更新的区块作为 ommer 纳入并获得部分区块奖励；“ommer”是父块兄弟块的中性称呼，也称“uncle”；以太坊改用权益证明后每个 slot 只选一个区块提议者。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "A block must specify a parent, and it must specify 0 or more uncles.",
+        "zh": "一个区块必须指定一个父块，并且必须指定 0 个或多个叔块。",
+        "context": "以太坊白皮书 Modified GHOST Implementation 一节。"
+      },
+      {
+        "en": "For every uncle U in block B, the miner of B gets an additional 3.125% added to its coinbase reward and the miner of U gets 93.75% of a standard coinbase reward.",
+        "zh": "对区块 B 中的每个叔块 U，B 的矿工在其 coinbase 奖励之外额外获得 3.125%，U 的矿工获得标准 coinbase 奖励的 93.75%。",
+        "context": "以太坊白皮书 Modified GHOST Implementation 一节。"
+      }
+    ],
+    "related_terms": [
+      "block",
+      "fork",
+      "mining reward",
+      "longest chain",
+      "miner"
+    ],
+    "tags": [
+      "ethereum",
+      "mining",
+      "ghost",
+      "whitepaper"
+    ]
+  },
+  {
+    "id": "wei",
+    "order": 60,
+    "term": "wei",
+    "term_zh": "wei（以太币最小单位）",
+    "aliases": [],
+    "part_of_speech": "noun",
+    "category": "Currency / 货币",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "Wei is the smallest denomination of ether: 1 ether = 10^18 wei. The Ethereum whitepaper pre-labels the denominations wei (1), szabo (10^12), finney (10^15) and ether (10^18), by analogy with satoshi and BTC, and expects wei to be used in technical discussions around fees and protocol implementation. In practice, transaction values and account balances are denominated in wei at the protocol level, and gas prices are commonly quoted in gwei (10^9 wei).",
+    "definition_zh": "wei 是 ether 的最小面额：1 ether = 10^18 wei。以太坊白皮书预先规定了面额 wei（1）、szabo（10^12）、finney（10^15）和 ether（10^18），类比于 satoshi 与 BTC 的关系，并预期 wei 用于有关手续费和协议实现的技术讨论。实践中，协议层面的交易金额和账户余额都以 wei 计价，gas 价格则通常以 gwei（10^9 wei）表示。",
+    "notes_zh": "钱包里显示的 “0.5 ETH” 在链上实际存储为 500000000000000000 wei，开发时要注意单位换算以免差 10^18 倍。gwei 并非白皮书中的面额，而是后来通行的 gas 价格单位。",
+    "citations": [
+      {
+        "title": "Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform",
+        "publisher": "Vitalik Buterin / ethereum.org",
+        "url": "https://ethereum.org/en/whitepaper/",
+        "accessed": "2026-11-11",
+        "note": "Currency And Issuance 一节：以太坊内置货币 ether，面额预先标记为 1: wei、10^12: szabo、10^15: finney、10^18: ether，可视为“美元与美分”或“BTC 与 satoshi”概念的扩展；预期 ether 用于普通交易，finney 用于小额交易，szabo 和 wei 用于有关手续费和协议实现的技术讨论。"
+      },
+      {
+        "title": "Intro to ether",
+        "publisher": "ethereum.org",
+        "url": "https://ethereum.org/en/developers/docs/intro-to-ether/",
+        "accessed": "2026-11-11",
+        "note": "Denominations of ether 一节：wei 是 ether 的最小可能数量，以太坊黄皮书等技术实现均以 wei 计算；gwei（giga-wei）常用于描述 gas 成本；wei = 10^-18 ether，gwei = 10^-9 ether。其后小节：交易的 value 字段和账户的 balance 字段均以 wei 计价。"
+      },
+      {
+        "title": "Ethereum glossary",
+        "publisher": "ethereum.org",
+        "url": "https://ethereum.org/en/glossary/",
+        "accessed": "2026-11-11",
+        "note": "Wei 词条：ether 的最小面额，10^18 wei = 1 ether。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "We expect \"ether\" to be used for ordinary transactions, \"finney\" for microtransactions and \"szabo\" and \"wei\" for technical discussions around fees and protocol implementation.",
+        "zh": "我们预期 “ether” 用于普通交易，“finney” 用于小额交易，而 “szabo” 和 “wei” 用于有关手续费和协议实现的技术讨论。",
+        "context": "以太坊白皮书 Currency And Issuance 一节。"
+      },
+      {
+        "en": "A gas price of 20 gwei equals 20,000,000,000 wei, or 0.00000002 ether, per unit of gas.",
+        "zh": "20 gwei 的 gas 价格相当于每单位 gas 20,000,000,000 wei，即 0.00000002 ether。",
+        "context": "手续费单位换算场景。"
+      }
+    ],
+    "related_terms": [
+      "ether",
+      "gas",
+      "transaction fee"
+    ],
+    "tags": [
+      "ethereum",
+      "currency",
+      "units",
+      "whitepaper"
+    ]
   }
 ];
