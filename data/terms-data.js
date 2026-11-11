@@ -3318,5 +3318,302 @@ window.TERMINOLOGY_TERMS = [
       "units",
       "whitepaper"
     ]
+  },
+  {
+    "id": "proof-of-stake",
+    "order": 61,
+    "term": "proof-of-stake",
+    "term_zh": "权益证明",
+    "aliases": [
+      "PoS",
+      "proof of stake"
+    ],
+    "part_of_speech": "noun",
+    "category": "Consensus / 共识",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "Proof-of-stake is a consensus mechanism in which the right to create blocks and secure the chain is tied to ownership of the currency itself rather than to expended computation. The PPCoin paper (2012), which launched the first proof-of-stake cryptocurrency, describes proof-of-stake as \"a form of proof of ownership of the currency\" and implements it by having a block producer consume the coin age of its own coins in a special coinstake transaction; because the hash search runs over a limited space, block generation does not require significant energy consumption. Modern designs such as Ethereum instead require validators to lock up (stake) coins that can be destroyed if they act dishonestly.",
+    "definition_zh": "权益证明是一种共识机制：创建区块、保护链安全的权利与对货币本身的所有权挂钩，而不是与消耗的计算量挂钩。推出首个权益证明加密货币的 PPCoin 论文（2012）把权益证明描述为“对货币所有权的一种证明”，其实现方式是让出块者在一笔特殊的 coinstake 交易中消耗自己币的币龄；由于哈希搜索只在有限空间内进行，生成区块不需要大量能源消耗。以太坊等现代设计则要求验证者锁定（质押）币，若其作恶，这些币可被销毁。",
+    "notes_zh": "PPCoin 是 PoW/PoS 混合设计：PoW 主要负责初始发行，PoS 提供大部分网络安全；以太坊的 PoS 则完全取消了挖矿，并通过罚没（slashing）惩罚作恶验证者。“持币即可出块”不等于“持币越多收益无限放大”，各协议对权重、最小币龄和惩罚的规定不同。",
+    "citations": [
+      {
+        "title": "PPCoin: Peer-to-Peer Crypto-Currency with Proof-of-Stake",
+        "publisher": "Sunny King, Scott Nadal",
+        "url": "https://www.peercoin.net/papers/peercoin-paper.pdf",
+        "accessed": "2026-11-12",
+        "note": "Abstract 与 Proof-of-Stake 一节：proof-of-stake 取代 proof-of-work 提供大部分网络安全，PoW 主要提供初始铸币；粗略地说，proof-of-stake 指一种对货币所有权的证明，交易所消耗的币龄可视为一种 proof-of-stake；与 PoW 类似，proof-of-stake 不易伪造。Block Generation under Proof-of-Stake 一节：哈希运算只在有限搜索空间进行（每个未花费钱包输出每秒一次哈希），因此不涉及显著能耗。"
+      },
+      {
+        "title": "Proof-of-stake (PoS)",
+        "publisher": "ethereum.org",
+        "url": "https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/",
+        "accessed": "2026-11-12",
+        "note": "What is proof-of-stake 一节：权益证明是证明验证者向网络投入了有价值之物的方式，若其不诚实，这些价值可被销毁；以太坊验证者把 ETH 质押进智能合约，负责检查新区块的有效性并偶尔创建、传播新区块。"
+      },
+      {
+        "title": "Proof of Stake",
+        "publisher": "Bitcoin Wiki",
+        "url": "https://en.bitcoin.it/wiki/Proof_of_Stake",
+        "accessed": "2026-11-12",
+        "note": "开篇：Proof of Stake 是 Proof of Work 的一种替代方案，同样试图提供共识和防止双花；PoW 中出块概率取决于矿工完成的工作量，PoS 中比较的资源是矿工持有的币量。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "Proof-of-stake replaces proof-of-work to provide most of the network security.",
+        "zh": "权益证明取代工作量证明，提供大部分网络安全。",
+        "context": "PPCoin 论文 Abstract。"
+      },
+      {
+        "en": "Roughly speaking, proof-of-stake means a form of proof of ownership of the currency.",
+        "zh": "粗略地说，权益证明是一种对货币所有权的证明。",
+        "context": "PPCoin 论文 Proof-of-Stake 一节。"
+      }
+    ],
+    "related_terms": [
+      "proof-of-work",
+      "coin age",
+      "coinstake transaction",
+      "consensus",
+      "minting"
+    ],
+    "tags": [
+      "consensus",
+      "proof-of-stake",
+      "ppcoin",
+      "whitepaper"
+    ]
+  },
+  {
+    "id": "coin-age",
+    "order": 62,
+    "term": "coin age",
+    "term_zh": "币龄",
+    "aliases": [
+      "coin-days",
+      "coin-day",
+      "coin-days destroyed"
+    ],
+    "part_of_speech": "noun",
+    "category": "Consensus / 共识",
+    "level": "intermediate",
+    "status": "draft",
+    "definition_en": "Coin age is a quantity defined in the PPCoin paper as currency amount times holding period, measured in units such as coin-days. Coin age accumulates while coins sit unspent and is consumed (or destroyed) when they are spent. PPCoin uses consumed coin age as its proof-of-stake: a coinstake kernel meets the hash target more easily the more coin age it consumes, proof-of-stake blocks mint new coins in proportion to the coin age consumed, and the main chain is the chain with the highest total consumed coin age.",
+    "definition_zh": "币龄是 PPCoin 论文定义的一个量：币的数量乘以持有时长，单位如“币天”（coin-day）。币在未花费期间累积币龄，被花费时币龄即被消耗（或销毁）。PPCoin 把消耗的币龄用作权益证明：coinstake 的 kernel 消耗的币龄越多，越容易满足哈希目标；权益证明区块按所消耗的币龄铸造新币；累计消耗币龄最高的链被选为主链。",
+    "notes_zh": "币龄不是“账户开立了多久”，而是金额 × 时间：10 个币持有 90 天 = 900 币天。PPCoin 还规定了最小币龄（如一个月），不足时币龄按零计算。比特币早期曾用币龄给交易排优先级，但它并非比特币安全模型的关键部分。",
+    "citations": [
+      {
+        "title": "PPCoin: Peer-to-Peer Crypto-Currency with Proof-of-Stake",
+        "publisher": "Sunny King, Scott Nadal",
+        "url": "https://www.peercoin.net/papers/peercoin-paper.pdf",
+        "accessed": "2026-11-12",
+        "note": "Coin Age 一节：币龄简单定义为货币数量乘以持有时长；Bob 从 Alice 收到 10 个币并持有 90 天，即累积 900 币天的币龄；Bob 花费这 10 个币时，其累积的币龄被消耗（或销毁）；为便于计算币龄，每笔交易引入了时间戳字段。Main Chain Protocol 一节：每笔交易把其消耗的币龄计入区块得分，累计消耗币龄最高的链被选为主链。Checkpoint 一节：币龄计算要求最小年龄（如一个月），低于此值时币龄按零计算。"
+      },
+      {
+        "title": "Peercoin",
+        "publisher": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Peercoin",
+        "accessed": "2026-11-12",
+        "note": "正文：Peercoin 使用权益证明保护网络，当区块链分裂时，PoS 币龄最长的链获胜。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "If Bob received 10 coins from Alice and held it for 90 days, we say that Bob has accumulated 900 coin-days of coin age.",
+        "zh": "如果 Bob 从 Alice 收到 10 个币并持有 90 天，我们就说 Bob 累积了 900 币天的币龄。",
+        "context": "PPCoin 论文 Coin Age 一节。"
+      },
+      {
+        "en": "The block chain with highest total consumed coin age is chosen as main chain.",
+        "zh": "累计消耗币龄最高的区块链被选为主链。",
+        "context": "PPCoin 论文 Main Chain Protocol 一节。"
+      }
+    ],
+    "related_terms": [
+      "proof-of-stake",
+      "coinstake transaction",
+      "longest chain",
+      "timestamp"
+    ],
+    "tags": [
+      "consensus",
+      "proof-of-stake",
+      "ppcoin",
+      "whitepaper"
+    ]
+  },
+  {
+    "id": "coinstake-transaction",
+    "order": 63,
+    "term": "coinstake transaction",
+    "term_zh": "coinstake 交易（权益交易）",
+    "aliases": [
+      "coinstake",
+      "stake transaction"
+    ],
+    "part_of_speech": "noun",
+    "category": "Transactions / 交易",
+    "level": "intermediate",
+    "status": "draft",
+    "definition_en": "A coinstake transaction is the special transaction that carries the proof-of-stake in a PPCoin proof-of-stake block, named after Bitcoin's coinbase transaction. In it the block owner pays himself, consuming the coin age of his inputs while gaining the privilege of generating a block and minting new coins. Its first input, called the kernel, must meet a hash target per unit of coin age consumed, so the hash search covers a limited space (one hash per unspent wallet output per second) instead of the unlimited search of proof-of-work.",
+    "definition_zh": "coinstake 交易是 PPCoin 权益证明区块中承载权益证明的特殊交易，其名称源自比特币的 coinbase 交易。在这笔交易中，区块所有者向自己付款，消耗其输入的币龄，同时获得为网络生成区块并铸造新币的特权。它的第一个输入称为 kernel，必须满足按单位消耗币龄计算的哈希目标，因此哈希搜索只在有限空间内进行（每个未花费钱包输出每秒一次哈希），而不是像工作量证明那样无限搜索。",
+    "notes_zh": "coinbase 交易凭空产生区块奖励，没有真实输入；coinstake 交易则有真实的“权益输入”，输出付回给权益所有者本人。PPCoin 还要求每个区块由其所有者签名，并用 (kernel, timestamp) 对检测重复权益，防止同一权益被复制用于攻击。",
+    "citations": [
+      {
+        "title": "PPCoin: Peer-to-Peer Crypto-Currency with Proof-of-Stake",
+        "publisher": "Sunny King, Scott Nadal",
+        "url": "https://www.peercoin.net/papers/peercoin-paper.pdf",
+        "accessed": "2026-11-12",
+        "note": "Block Generation under Proof-of-Stake 一节：新类型区块中的 proof-of-stake 是一笔称为 coinstake 的特殊交易（得名于比特币的特殊交易 coinbase）；区块所有者在 coinstake 中向自己付款从而消耗币龄，同时获得为网络生成区块和为权益证明铸币的特权；coinstake 的第一个输入称为 kernel，需满足一定的哈希目标协议；哈希目标是按 kernel 中消耗的单位币龄（币天）计算的。图示：Kernel input、Stake input、Stake output（pay to stake owner himself）。Block Signatures and Duplicate Stake Protocol 一节：节点收集所见 coinstake 交易的 (kernel, timestamp) 对。"
+      },
+      {
+        "title": "Coinbase",
+        "publisher": "Bitcoin Wiki",
+        "url": "https://en.bitcoin.it/wiki/Coinbase",
+        "accessed": "2026-11-12",
+        "note": "供对照：coinbase 是 generation transaction（即 coinbase 交易）的“输入”内容；普通交易的 inputs 引用其父交易的输出，而 generation transaction 没有父交易，凭空创造新币；coinbase 可包含任意数据。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "In the coinstake transaction block owner pays himself thereby consuming his coin age, while gaining the privilege of generating a block for the network and minting for proof-of-stake.",
+        "zh": "在 coinstake 交易中，区块所有者向自己付款，从而消耗其币龄，同时获得为网络生成区块并通过权益证明铸币的特权。",
+        "context": "PPCoin 论文 Block Generation under Proof-of-Stake 一节。"
+      },
+      {
+        "en": "The first input of coinstake is called kernel and is required to meet certain hash target protocol.",
+        "zh": "coinstake 的第一个输入称为 kernel，必须满足一定的哈希目标协议。",
+        "context": "PPCoin 论文 Block Generation under Proof-of-Stake 一节。"
+      }
+    ],
+    "related_terms": [
+      "coinbase transaction",
+      "coin age",
+      "proof-of-stake",
+      "difficulty",
+      "minting"
+    ],
+    "tags": [
+      "transactions",
+      "proof-of-stake",
+      "ppcoin",
+      "whitepaper"
+    ]
+  },
+  {
+    "id": "checkpoint",
+    "order": 64,
+    "term": "checkpoint",
+    "term_zh": "检查点",
+    "aliases": [
+      "checkpoints",
+      "checkpointing",
+      "checkpoint lock-in"
+    ],
+    "part_of_speech": "noun",
+    "category": "Consensus / 共识",
+    "level": "intermediate",
+    "status": "draft",
+    "definition_en": "A checkpoint is a block that nodes treat as fixed, so that the part of the chain at or before it can no longer be changed by a reorganization. Bitcoin introduced checkpoints in 2010 by hardcoding old block hashes into its software. PPCoin added a second, centrally broadcast form of checkpoint, issued at much shorter intervals such as a few times daily, to freeze the block chain and finalize transactions, because selecting the main chain by consumed coin age lowers the cost of attacking history and of double-spending. The paper acknowledges that this broadcast mechanism is a form of centralization.",
+    "definition_zh": "检查点是节点视为固定不变的区块，检查点及其之前的链段不再能被重组改变。比特币在 2010 年引入检查点，方式是把旧区块哈希硬编码进软件。PPCoin 又增加了第二种由中心广播的检查点，以短得多的间隔（如每天数次）发布，用于冻结区块链、使交易最终确定；原因是按消耗币龄选择主链会降低攻击历史和双花的成本。论文承认这种广播机制是一种中心化。",
+    "notes_zh": "PPCoin 的中心化检查点与比特币随软件发布的硬编码检查点不同：前者由开发者持续广播，类似比特币的警报系统。以太坊 Casper FFG 中的 “checkpoint” 指每个 epoch 的边界区块，由验证者投票确定最终性，含义又不相同。",
+    "citations": [
+      {
+        "title": "PPCoin: Peer-to-Peer Crypto-Currency with Proof-of-Stake",
+        "publisher": "Sunny King, Scott Nadal",
+        "url": "https://www.peercoin.net/papers/peercoin-paper.pdf",
+        "accessed": "2026-11-12",
+        "note": "Checkpoint: Protection of History 一节：用总消耗币龄决定主链的缺点是降低了攻击整条历史链的成本；Nakamoto 在 2010 年引入检查点以固化区块链历史，防止检查点之前的部分被改变；双花攻击成本也可能降低，攻击者只需积累一定币龄即可强制重组；因此 PPCoin 引入一种中心广播的检查点，间隔短得多（如每天数次），用于冻结区块链并最终确定交易，其广播方式类似比特币的警报系统；论文承认广播检查点是一种中心化，但在分布式方案出现前可以接受。"
+      },
+      {
+        "title": "Checkpoint Lockin",
+        "publisher": "Bitcoin Wiki",
+        "url": "https://en.bitcoin.it/wiki/Checkpoint_Lockin",
+        "accessed": "2026-11-12",
+        "note": "正文：比特币软件会不时硬编码一个旧区块哈希；检查点可防止节点被大量不可用链淹没的 DoS 攻击以及隔离节点并提供伪造链的攻击，但主要是初始区块链下载的优化；一些山寨链使用不同形式的检查点，例如持续的“中心检查点脉冲”。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "We decided to introduce an additional form of checkpoints that are broadcasted centrally, at much shorter intervals such as a few times daily, to serve to freeze block chain and finalize transactions.",
+        "zh": "我们决定引入另一种由中心广播的检查点，以短得多的间隔（如每天数次）发布，用于冻结区块链并使交易最终确定。",
+        "context": "PPCoin 论文 Checkpoint: Protection of History 一节。"
+      },
+      {
+        "en": "Nakamoto still introduced checkpoints in 2010 as a mechanism to solidify the block chain history.",
+        "zh": "Nakamoto 仍在 2010 年引入了检查点，作为固化区块链历史的机制。",
+        "context": "PPCoin 论文 Checkpoint: Protection of History 一节。"
+      }
+    ],
+    "related_terms": [
+      "reorganization",
+      "double-spending",
+      "coin age",
+      "confirmation"
+    ],
+    "tags": [
+      "consensus",
+      "security",
+      "ppcoin",
+      "whitepaper"
+    ]
+  },
+  {
+    "id": "minting",
+    "order": 65,
+    "term": "minting",
+    "term_zh": "铸币",
+    "aliases": [
+      "mint",
+      "mint rate"
+    ],
+    "part_of_speech": "noun",
+    "category": "Mining / 挖矿",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "Minting is the protocol-defined creation of new coins when a block is produced. The PPCoin paper uses the term for both of its block types: proof-of-work blocks mint coins as in Bitcoin, with a mint amount that falls as difficulty rises (each 16x rise in difficulty halves it), while proof-of-stake blocks mint coins based on the coin age consumed in the coinstake transaction, at a rate of 1 cent per coin-year. Participants who generate proof-of-stake blocks are often called minters rather than miners.",
+    "definition_zh": "铸币是指在产生区块时，按协议规定创造新币。PPCoin 论文把这个词用于两种区块：工作量证明区块像比特币一样铸币，但铸币量随难度上升而下降（难度每上升 16 倍，铸币量减半）；权益证明区块则按 coinstake 交易中消耗的币龄铸币，速率为每消耗 1 币年铸造 1 分（0.01 币）。生成权益证明区块的参与者常被称为“铸币者”（minter）而不是矿工。",
+    "notes_zh": "这里的 minting 指协议层的新币发行，与 NFT 或代币合约中的 “mint” 函数（由合约创建新代币）不同。PPCoin 的 PoW 铸币量由难度而非区块高度决定，曲线是连续的，不同于比特币的阶梯式减半。",
+    "citations": [
+      {
+        "title": "PPCoin: Peer-to-Peer Crypto-Currency with Proof-of-Stake",
+        "publisher": "Sunny King, Scott Nadal",
+        "url": "https://www.peercoin.net/papers/peercoin-paper.pdf",
+        "accessed": "2026-11-12",
+        "note": "Minting based on Proof-of-Stake 一节：在比特币的 PoW 铸币之外为 PoS 区块引入新的铸币过程；PoS 区块按 coinstake 交易消耗的币龄铸币，选择每消耗 1 币年铸造 1 分的速率以获得较低的未来通胀率；保留 PoW 是为了便于初始铸币。Other Considerations 一节：PoW 铸币率不由区块高度决定而由难度决定，难度每上升 16 倍，区块铸币量减半。Abstract：PoW 主要提供初始铸币。"
+      },
+      {
+        "title": "Peercoin",
+        "publisher": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Peercoin",
+        "accessed": "2026-11-12",
+        "note": "正文：Peercoin 同时使用 PoW 和 PoS 算法分发新币；早期主要依赖 PoW，现已转向 PoS。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "A mint rate of 1 cent per coin-year consumed is chosen to give rise to a low future inflation rate.",
+        "zh": "选择每消耗 1 币年铸造 1 分的铸币率，以带来较低的未来通胀率。",
+        "context": "PPCoin 论文 Minting based on Proof-of-Stake 一节。"
+      },
+      {
+        "en": "A continuous curve is chosen such that each 16x raise of mining difficulty halves the block mint amount.",
+        "zh": "所选的连续曲线使挖矿难度每上升 16 倍，区块铸币量就减半。",
+        "context": "PPCoin 论文 Other Considerations 一节。"
+      }
+    ],
+    "related_terms": [
+      "mining reward",
+      "proof-of-stake",
+      "coinstake transaction",
+      "halving",
+      "difficulty"
+    ],
+    "tags": [
+      "mining",
+      "issuance",
+      "ppcoin",
+      "whitepaper"
+    ]
   }
 ];
