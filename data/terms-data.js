@@ -3615,5 +3615,295 @@ window.TERMINOLOGY_TERMS = [
       "ppcoin",
       "whitepaper"
     ]
+  },
+  {
+    "id": "stake-kernel",
+    "order": 66,
+    "term": "stake kernel",
+    "term_zh": "权益内核",
+    "aliases": [
+      "kernel",
+      "coinstake kernel",
+      "kernel input"
+    ],
+    "part_of_speech": "noun",
+    "category": "Consensus / 共识",
+    "level": "advanced",
+    "status": "draft",
+    "definition_en": "In PPCoin, the stake kernel is the first input of a coinstake transaction; it must meet a hash target for a proof-of-stake block to be valid, which makes proof-of-stake block generation a stochastic process similar to proof-of-work. Unlike proof-of-work, the hashing is done over a limited search space (one hash per unspent wallet output per second), so no significant energy is consumed. The hash target is a target per unit of coin age (coin-day) consumed in the kernel, so the more coin age the kernel consumes, the easier it is to meet the target.",
+    "definition_zh": "在 PPCoin 中，权益内核（kernel）是 coinstake 交易的第一个输入；它必须满足一个哈希目标，权益证明区块才有效，这使得生成权益证明区块成为与工作量证明类似的随机过程。与工作量证明不同，这种哈希运算在有限的搜索空间内进行（每个未花费钱包输出每秒一次哈希），因此不会消耗大量能源。该哈希目标是按内核所消耗的每单位币龄（币天）计算的目标，因此内核消耗的币龄越多，越容易满足目标。",
+    "notes_zh": "内核只是 coinstake 交易的第一个输入，并不是整笔 coinstake 交易；其余输入（stake input）只是一并花费、不参与满足哈希目标。与比特币对所有节点相同的固定 PoW 目标不同，PPCoin 的 PoS 目标随内核消耗的币龄而放宽。论文还提到，节点会记录所有已见 coinstake 交易的（kernel, timestamp）对，以拒绝重复权益区块。",
+    "citations": [
+      {
+        "title": "PPCoin: Peer-to-Peer Crypto-Currency with Proof-of-Stake",
+        "publisher": "Sunny King, Scott Nadal",
+        "url": "https://www.peercoin.net/papers/peercoin-paper.pdf",
+        "accessed": "2026-11-13",
+        "note": "Proof-of-Stake 一节：coinstake 交易的第一个输入称为 kernel，必须满足一定的哈希目标协议，使 PoS 区块生成成为与 PoW 类似的随机过程；但哈希运算在有限搜索空间内进行（每个未花费钱包输出每秒一次哈希），不消耗大量能源；内核须满足的哈希目标是按内核消耗的每单位币龄（币天）计的目标，消耗币龄越多越容易满足；文中附图展示 Kernel input、Stake input、Stake output 的结构。Block Signatures and Duplicate Stake Protocol 一节：节点收集所有已见 coinstake 交易的 (kernel, timestamp) 对以防御重复权益攻击。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "The first input of coinstake is called kernel and is required to meet certain hash target protocol, thus making the generation of proof-of-stake blocks a stochastic process similar to proof-of-work blocks.",
+        "zh": "coinstake 的第一个输入称为内核，它必须满足一定的哈希目标协议，从而使权益证明区块的生成成为与工作量证明区块类似的随机过程。",
+        "context": "PPCoin 论文 Proof-of-Stake 一节。"
+      },
+      {
+        "en": "If Bob has a wallet-output which accumulated 100 coin-years and expects it to generate a kernel in 2 days, then Alice can roughly expect her 200 coin-year wallet-output to generate a kernel in 1 day.",
+        "zh": "如果 Bob 有一个累积了 100 币年的钱包输出，预计 2 天内能生成一个内核，那么 Alice 大致可以预期她那个 200 币年的钱包输出在 1 天内生成内核。",
+        "context": "PPCoin 论文 Proof-of-Stake 一节中的示例。"
+      }
+    ],
+    "related_terms": [
+      "coinstake transaction",
+      "coin age",
+      "proof-of-stake",
+      "difficulty",
+      "transaction input"
+    ],
+    "tags": [
+      "consensus",
+      "proof-of-stake",
+      "ppcoin",
+      "whitepaper"
+    ]
+  },
+  {
+    "id": "mining-pool",
+    "order": 67,
+    "term": "mining pool",
+    "term_zh": "矿池",
+    "aliases": [
+      "pool",
+      "pooled mining",
+      "pool mining"
+    ],
+    "part_of_speech": "noun",
+    "category": "Mining / 挖矿",
+    "level": "beginner",
+    "status": "draft",
+    "definition_en": "A mining pool is a group of miners who work together to mine each block and share the revenue whenever any member mines a block, typically in proportion to each member's contributed mining power. Because block discovery is a random process, a single small miner may wait a very long time between rewards; joining a pool does not change a miner's expected revenue, but it reduces the variance and makes income more predictable. Eyal and Sirer model a pool as a group of miners that behaves as a single agent with a centralized coordinator.",
+    "definition_zh": "矿池是一组矿工共同挖每一个区块，并在任一成员挖到区块时分享收益的组织形式，收益通常按各成员贡献的算力比例分配。由于出块是随机过程，单个小矿工两次获得奖励之间可能要等待很久；加入矿池不会改变矿工的期望收益，但能降低收益的方差，使收入更可预测。Eyal 与 Sirer 将矿池建模为一组像单一主体一样行动、由中心化协调者指挥的矿工。",
+    "notes_zh": "矿池降低的是收益波动，而不是提高期望收益。矿池成员通常提交难度更低的“份额”（share）来证明自己的贡献。矿池像单一主体一样行动，因此大型矿池意味着算力与出块策略的集中，这正是自私挖矿论文担心的风险。",
+    "citations": [
+      {
+        "title": "Majority is not Enough: Bitcoin Mining is Vulnerable",
+        "publisher": "Ittay Eyal, Emin Gün Sirer (arXiv:1311.0243; FC 2014)",
+        "url": "https://arxiv.org/abs/1311.0243",
+        "accessed": "2026-11-13",
+        "note": "Section 2.1 Blockchain and Mining：从单个矿工角度看出块间隔方差很大，单个家庭 ASIC 矿工可能多年挖不到一个块，因此矿工通常组成矿池；矿池所有成员共同挖每个块，并在其中一人成功挖到时分享收益；加入矿池不改变期望收益，但降低方差。Section 3.1 Modeling Miners and Pools：一组矿工可组成像单一主体一样、由中心化协调者按某种策略行动的矿池，其算力为成员算力之和，收益按成员相对算力分配。"
+      },
+      {
+        "title": "Pooled mining",
+        "publisher": "Bitcoin Wiki",
+        "url": "https://en.bitcoin.it/wiki/Pooled_mining",
+        "accessed": "2026-11-13",
+        "note": "正文：矿池挖矿是多个客户端共同参与生成区块，再按贡献的处理能力分割区块奖励的方式；矿池向提交与区块同类型但难度较低的工作量证明的客户端记“份额”（share）。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "While joining a pool does not change a miner's expected revenue, it decreases the variance and makes the monthly revenues more predictable.",
+        "zh": "虽然加入矿池不会改变矿工的期望收益，但它降低了方差，使每月收入更可预测。",
+        "context": "Majority is not Enough 论文 Section 2.1。"
+      },
+      {
+        "en": "A group of miners can form a pool that behaves as single agent with a centralized coordinator, following some strategy.",
+        "zh": "一组矿工可以组成一个矿池，它像单一主体一样，由中心化协调者按某种策略行动。",
+        "context": "Majority is not Enough 论文 Section 3.1 对矿池的建模。"
+      }
+    ],
+    "related_terms": [
+      "miner",
+      "mining reward",
+      "hashrate",
+      "selfish mining",
+      "block withholding attack"
+    ],
+    "tags": [
+      "mining",
+      "pool",
+      "selfish-mining",
+      "paper"
+    ]
+  },
+  {
+    "id": "selfish-mining",
+    "order": 68,
+    "term": "selfish mining",
+    "term_zh": "自私挖矿",
+    "aliases": [
+      "Selfish-Mine",
+      "selfish mining attack",
+      "selfish miner"
+    ],
+    "part_of_speech": "noun",
+    "category": "Mining / 挖矿",
+    "level": "intermediate",
+    "status": "draft",
+    "definition_en": "Selfish mining is a mining strategy, introduced by Eyal and Sirer (2013), in which a colluding pool keeps the blocks it discovers private, intentionally forking the chain, and mines on its own private branch while honest miners keep mining on the public branch. When the public branch approaches the private branch in length, the pool reveals blocks from its private branch, so that honest miners' blocks are discarded and their work is wasted. The honest miners waste proportionally more than the pool, so a pool above a threshold size earns more than its share of the total mining power. The paper shows that the threshold can be close to zero for a well-connected pool, can never exceed 1/3, and can be raised to 1/4 with the proposed fix of choosing uniformly at random among equal-length branches.",
+    "definition_zh": "自私挖矿是 Eyal 与 Sirer（2013）提出的一种挖矿策略：合谋的矿池把自己挖到的区块保密，有意制造分叉，在自己的私有分支上继续挖矿，而诚实矿工继续在公开分支上挖矿。当公开分支的长度逼近私有分支时，矿池公布私有分支中的区块，使诚实矿工的区块被丢弃、工作被浪费。诚实矿工浪费的比例比矿池更高，因此规模超过某一阈值的矿池能获得高于其算力占比的收益。论文表明：对于网络连接良好的矿池，阈值可接近于零；该阈值永远不会超过 1/3；若采用论文提出的修正（在等长分支间均匀随机选择），阈值可提升到 1/4。",
+    "notes_zh": "自私挖矿不同于 51% 攻击：它不需要多数算力，目标是获得超额收益并吸引理性矿工加入，最终可能使矿池成长为多数。它也不同于针对矿池的“扣块攻击”（block withholding），后者是矿池成员损害矿池自身。论文提出的随机选分支修正并未被 Bitcoin Core 采用。",
+    "citations": [
+      {
+        "title": "Majority is not Enough: Bitcoin Mining is Vulnerable",
+        "publisher": "Ittay Eyal, Emin Gün Sirer (arXiv:1311.0243; FC 2014)",
+        "url": "https://arxiv.org/abs/1311.0243",
+        "accessed": "2026-11-13",
+        "note": "Abstract 与 Section 1 Introduction：自私挖矿的核心思想是矿池将发现的区块保密、有意分叉，诚实节点继续在公开链上挖矿，矿池在私有分支上挖矿；当公开分支长度逼近私有分支时公布私有区块；诚实矿工浪费更多资源，矿池收益超过其算力份额；对连接良好的矿池阈值接近零，阈值上界为 1/3；提出的向后兼容修改可实现 1/4 阈值。Section 3 给出 Selfish-Mine 算法；Section 6 Fixing the Bitcoin Protocol：遇到等长竞争分支时应传播全部分支并均匀随机选择其一挖矿。"
+      },
+      {
+        "title": "Selfish mining",
+        "publisher": "Bitcoin Wiki",
+        "url": "https://en.bitcoin.it/wiki/Selfish_mining",
+        "accessed": "2026-11-13",
+        "note": "正文：自私挖矿由 Eyal 与 Sirer 在 2013 年描述，是对中本聪共识的激励攻击而非密码学破解；攻击者胜出竞争的概率取决于连接性（论文中的参数 γ）；任何此类策略在超过 1/3 算力时都无法被消除；随机选择等工作量链尖的对策可将阈值提升至 1/4，但 Bitcoin Core 仍采用先见到的区块，该修正未部署；自私挖矿不同于多数攻击。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "The key idea behind this strategy, called Selfish Mining, is for a pool to keep its discovered blocks private, thereby intentionally forking the chain.",
+        "zh": "这一被称为自私挖矿的策略，其核心思想是矿池将自己发现的区块保密，从而有意地让链分叉。",
+        "context": "Majority is not Enough 论文 Section 1 Introduction。"
+      },
+      {
+        "en": "The protocol will never be safe against attacks by a selfish mining pool that commands more than 33% of the total mining power of the network.",
+        "zh": "对于掌握全网总算力 33% 以上的自私挖矿矿池，该协议永远无法抵御其攻击。",
+        "context": "Majority is not Enough 论文 Section 1 Introduction。"
+      }
+    ],
+    "related_terms": [
+      "mining pool",
+      "incentive compatibility",
+      "fork",
+      "longest chain",
+      "51% attack",
+      "honest node"
+    ],
+    "tags": [
+      "mining",
+      "attack",
+      "incentives",
+      "selfish-mining",
+      "paper"
+    ]
+  },
+  {
+    "id": "incentive-compatibility",
+    "order": 69,
+    "term": "incentive compatibility",
+    "term_zh": "激励相容",
+    "aliases": [
+      "incentive-compatible",
+      "incentive compatible",
+      "IC"
+    ],
+    "part_of_speech": "noun",
+    "category": "Consensus / 共识",
+    "level": "intermediate",
+    "status": "draft",
+    "definition_en": "A protocol is incentive-compatible when following it as prescribed is the best strategy for every rational participant, so that no one can gain by deviating. In game theory and economics, a mechanism is called incentive-compatible if every participant can achieve their own best outcome by reporting their true preferences. For Bitcoin, Eyal and Sirer state the conventional assumption as: the best strategy of a rational minority pool is to be honest, and a minority of colluding miners cannot earn disproportionate benefits by deviating from the protocol; their selfish mining strategy shows that Bitcoin mining, as prescribed and implemented, is not incentive-compatible.",
+    "definition_zh": "当按规定执行协议对每个理性参与者都是最优策略、任何人都无法通过偏离协议获益时，该协议就是激励相容的。在博弈论和经济学中，若每个参与者都能通过如实报告自己的真实偏好来获得对自己最好的结果，该机制就被称为激励相容。对于比特币，Eyal 与 Sirer 把传统假设表述为：理性的少数派矿池的最佳策略是诚实，少数合谋矿工无法通过偏离协议获得不成比例的收益；他们的自私挖矿策略表明，按规定和实现的比特币挖矿并不是激励相容的。",
+    "notes_zh": "激励相容关注的是“理性参与者是否愿意遵守协议”，不同于“诚实多数”这类安全假设：即便多数矿工最初诚实，协议若不激励相容，理性矿工也可能转向偏离策略。该概念源自机制设计，归功于经济学家 Leonid Hurwicz。",
+    "citations": [
+      {
+        "title": "Majority is not Enough: Bitcoin Mining is Vulnerable",
+        "publisher": "Ittay Eyal, Emin Gün Sirer (arXiv:1311.0243; FC 2014)",
+        "url": "https://arxiv.org/abs/1311.0243",
+        "accessed": "2026-11-13",
+        "note": "Section 1 Introduction：传统观点长期认为比特币协议是激励相容的，即理性的少数派矿池的最佳策略是诚实，少数合谋矿工无法通过偏离协议获得不成比例的收益；本文表明按规定和实现的比特币协议并非激励相容。Section 3.1：假设矿工是理性的，即试图最大化收益并可能为此偏离协议。Section 9 Conclusion：比特币的挖矿算法不是激励相容的。"
+      },
+      {
+        "title": "Incentive compatibility",
+        "publisher": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Incentive_compatibility",
+        "accessed": "2026-11-13",
+        "note": "导语：在博弈论和经济学中，若每个参与者都能通过报告真实偏好获得自己的最佳结果，则该机制称为激励相容（IC）；该概念归功于经济学家 Leonid Hurwicz；包括占优策略激励相容（DSIC）和贝叶斯纳什激励相容（BNIC）等不同强度。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "In this paper, we show that the conventional wisdom is wrong: the Bitcoin protocol, as prescribed and implemented, is not incentive-compatible.",
+        "zh": "在本文中，我们证明传统观点是错误的：按规定和实现的比特币协议并不是激励相容的。",
+        "context": "Majority is not Enough 论文 Section 1 Introduction。"
+      },
+      {
+        "en": "A recent survey identifies incentive-compatibility as a critical property of the system.",
+        "zh": "一篇近期综述将激励相容视为该系统的一项关键属性。",
+        "context": "Majority is not Enough 论文 Section 7 Related Work。"
+      }
+    ],
+    "related_terms": [
+      "incentive",
+      "selfish mining",
+      "honest node",
+      "mining pool"
+    ],
+    "tags": [
+      "game-theory",
+      "incentives",
+      "consensus",
+      "selfish-mining",
+      "paper"
+    ]
+  },
+  {
+    "id": "block-withholding-attack",
+    "order": 70,
+    "term": "block withholding attack",
+    "term_zh": "扣块攻击",
+    "aliases": [
+      "block withholding",
+      "BWH attack",
+      "sabotage attack"
+    ],
+    "part_of_speech": "noun",
+    "category": "Mining / 挖矿",
+    "level": "intermediate",
+    "status": "draft",
+    "definition_en": "A block withholding attack is an attack on a mining pool in which a pool member submits its ordinary shares but never publishes the valid blocks it finds, decreasing the pool's revenue. This is possible because miners can tell whether a share they have found is also a valid block and can refrain from or delay submitting it. In the simplest form (sabotage) the attacker gains nothing directly and only harms the pool operator or the other participants. Eyal and Sirer stress that it is unrelated to selfish mining, which is an attack by a pool on the whole system rather than by a member on its own pool.",
+    "definition_zh": "扣块攻击是针对矿池的一种攻击：矿池成员照常提交普通份额（share），却从不公布自己找到的有效区块，从而降低矿池的收益。之所以可行，是因为矿工能够判断自己找到的份额是否同时也是有效区块，并据此不提交或延迟提交。最简单的形式（破坏型）中，攻击者自己没有直接收益，只会损害矿池运营者或其他参与者。Eyal 与 Sirer 强调，它与自私挖矿无关：自私挖矿是矿池对整个系统的攻击，而扣块攻击是成员对自己所在矿池的攻击。",
+    "notes_zh": "名称相似但对象不同：扣块攻击“扣”的是矿池成员不交给矿池的区块，受害者是矿池；自私挖矿“藏”的是矿池暂不公布给全网的区块，受害者是其他诚实矿工。Rosenfeld 还描述了可获利的“伺机”（lie in wait）变体。",
+    "citations": [
+      {
+        "title": "Majority is not Enough: Bitcoin Mining is Vulnerable",
+        "publisher": "Ittay Eyal, Emin Gün Sirer (arXiv:1311.0243; FC 2014)",
+        "url": "https://arxiv.org/abs/1311.0243",
+        "accessed": "2026-11-13",
+        "note": "Section 7 Related Work：在扣块攻击中，矿池成员从不公布其找到的区块，从而降低矿池收益；虽然听起来与 Selfish-Mine 相似，但二者无关，本文处理的是矿池对系统的攻击。"
+      },
+      {
+        "title": "Analysis of Bitcoin Pooled Mining Reward Systems",
+        "publisher": "Meni Rosenfeld (arXiv:1112.4980)",
+        "url": "https://arxiv.org/abs/1112.4980",
+        "accessed": "2026-11-13",
+        "note": "Section 6.2 Block withholding：在现有协议下，矿工能判断找到的份额是否为有效区块，并可不提交或延迟提交区块；由此可实施两种攻击：破坏（sabotage，攻击者从不提交任何区块，对自己无直接好处，只损害矿池运营者或参与者）与伺机（lie in wait，推迟提交区块以获利）；6.2.3 节提出“不可辨识份额”（oblivious shares）作为解决方案。"
+      }
+    ],
+    "examples": [
+      {
+        "en": "In a block withholding attack, a pool member decreases the pool revenue by never publishing blocks it finds.",
+        "zh": "在扣块攻击中，矿池成员通过从不公布自己找到的区块来降低矿池收益。",
+        "context": "Majority is not Enough 论文 Section 7 Related Work。"
+      },
+      {
+        "en": "The simpler attack is sabotage, where the attacker never submits any blocks. This has no direct benefit for the attacker, only causing harm to the pool operator or participants.",
+        "zh": "较简单的攻击是破坏型：攻击者从不提交任何区块。这对攻击者没有直接好处，只会损害矿池运营者或参与者。",
+        "context": "Rosenfeld《Analysis of Bitcoin Pooled Mining Reward Systems》Section 6.2。"
+      }
+    ],
+    "related_terms": [
+      "mining pool",
+      "selfish mining",
+      "miner",
+      "mining reward"
+    ],
+    "tags": [
+      "mining",
+      "attack",
+      "pool",
+      "selfish-mining",
+      "paper"
+    ]
   }
 ];
